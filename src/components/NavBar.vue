@@ -9,7 +9,7 @@ const linkData = [
 
 <template>
   <nav>
-    <h1>LOGO</h1>
+    <h2>LOGO</h2>
 
     <ul>
       <li v-for="link in linkData" :key="link.text">
