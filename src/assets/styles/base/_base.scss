@@ -1,0 +1,17 @@
+@use "../utils" as utils;
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: utils.$semi-white;
+}
+
+input,
+button,
+textarea,
+select,
+section {
+  font: inherit;
+}

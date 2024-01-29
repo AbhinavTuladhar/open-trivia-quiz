@@ -1,0 +1,10 @@
+@use "../utils/" as utils;
+
+.content-grid {
+  $first-gap: clamp(16px, -8.672px + 6.852vw, 90px);
+  $second-gap: clamp(0px, -3.328px + 0.926vw, 10px);
+
+  display: grid;
+  grid-template-columns: [full-width-start] $first-gap [breakout-start] $second-gap [content-start] minmax(320px, 1fr) [content-end] $second-gap [breakout-end] $first-gap [full-width-end];
+  grid-auto-flow: row;
+}

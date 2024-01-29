@@ -1,0 +1,60 @@
+@use "./variables" as *;
+
+@mixin flex-box($direction: row, $justify-content: null, $align-items: null, $gap: 0rem, $wrap: false) {
+  display: flex;
+  flex-direction: $direction;
+
+  @if $justify-content {
+    justify-content: $justify-content;
+  }
+  @if $align-items {
+    align-items: $align-items;
+  }
+  @if $wrap {
+    flex-wrap: wrap;
+  }
+  @if $gap {
+    gap: $gap;
+  }
+}
+
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin breakpoint-max($name) {
+  @if not map-has-key($breakpoints, $name) {
+    @warn "Warning: `#{$name}` is not a valid breakpoint name.";
+  } @else {
+    @media (max-width: map-get($breakpoints, $name)) {
+      @content;
+    }
+  }
+}
+
+@mixin breakpoint-min($name) {
+  @if not map-has-key($breakpoints, $name) {
+    @warn "Warning: `#{$name}` is not a valid breakpoint name.";
+  } @else {
+    @media (min-width: map-get($breakpoints, $name)) {
+      @content;
+    }
+  }
+}
+
+@mixin typing-animation-base-style {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 1px solid transparent;
+  max-width: fit-content;
+  width: 22ch;
+}
+
+@mixin animation-wait($delay: 2s) {
+  animation-delay: $delay;
+  animation-fill-mode: both;
+}
