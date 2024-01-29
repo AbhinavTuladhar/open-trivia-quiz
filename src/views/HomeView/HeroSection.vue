@@ -11,9 +11,7 @@
       </div>
     </div>
 
-    <div>
-      <img :src="Hero" alt="something" />
-    </div>
+    <img class="hero__image" :src="Hero" alt="something" />
   </section>
 </template>
 
@@ -27,10 +25,15 @@ import Hero from '@/assets/images/hero.jpg'
   padding-block: clamp(1rem, 0.714rem + 1.429vw, 2rem);
   display: grid;
   align-items: center;
-  justify-items: end;
-  grid-template-columns: repeat(auto-fill, minmax(483px, 1fr));
+  // justify-items: end;
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
   justify-content: center;
   column-gap: 5rem;
+
+  &__image {
+    // width: min(693px, 100%);
+    width: 100%;
+  }
 }
 
 .col-1 {
