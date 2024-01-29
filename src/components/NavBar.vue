@@ -9,7 +9,9 @@ const linkData = [
 
 <template>
   <nav>
-    <h2>LOGO</h2>
+    <RouterLink to="/">
+      <h2>LOGO</h2>
+    </RouterLink>
 
     <ul>
       <li v-for="link in linkData" :key="link.text">
@@ -17,7 +19,9 @@ const linkData = [
       </li>
     </ul>
 
-    <button>Play now!</button>
+    <RouterLink to="/quiz">
+      <button>Play now!</button>
+    </RouterLink>
   </nav>
 </template>
 
@@ -29,7 +33,6 @@ nav {
   align-items: center;
   padding-inline: clamp(1rem, 0.571rem + 2.143vw, 2.5rem);
   padding-block: 1rem;
-  background-color: royalblue;
   color: white;
 
   ul {
@@ -43,6 +46,13 @@ nav {
     color: white;
     border: 1px solid white;
     border-radius: 8px;
+    transition-duration: $transition-duration;
+
+    &:hover {
+      color: $primary-colour;
+      background-color: white;
+      cursor: pointer;
+    }
   }
 }
 </style>

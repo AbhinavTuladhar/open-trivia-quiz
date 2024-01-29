@@ -1,6 +1,6 @@
 <template>
-  <section className="hero">
-    <div className="col-1">
+  <section class="hero">
+    <div class="col-1">
       <h1>Play Online Quizzes and Win Prizes Daily!</h1>
       <p>Win upto Rs.5000 monthly!</p>
       <button class="col-1__register-btn">Register now!</button>
@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import Hero from '@/assets/images/hero.jpg'
+console.log(Hero)
 </script>
 
 <style scoped lang="scss">

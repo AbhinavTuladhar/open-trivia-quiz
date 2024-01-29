@@ -5,6 +5,8 @@
   $second-gap: clamp(0px, -2.864px + 0.893vw, 10px);
 
   display: grid;
-  grid-template-columns: [full-width-start] $first-gap [breakout-start] $second-gap [content-start] minmax(320px, 1fr) [content-end] $second-gap [breakout-end] $first-gap [full-width-end];
+  grid-template-columns:
+    [full-width-start] $first-gap [breakout-start] $second-gap [content-start] minmax(min(288px, 100%), 1fr)
+    [content-end] $second-gap [breakout-end] $first-gap [full-width-end];
   grid-auto-flow: row;
 }
