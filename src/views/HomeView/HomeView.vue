@@ -9,7 +9,7 @@ import HowToPlay from './HowToPlay.vue'
 </template>
 
 <style lang="scss">
-main {
-  background-color: $secondary-colour;
-}
+// main {
+//   background-color: $secondary-colour;
+// }
 </style>

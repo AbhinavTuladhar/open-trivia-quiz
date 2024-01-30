@@ -17,7 +17,6 @@
 
 <script setup lang="ts">
 import Hero from '@/assets/images/hero.jpg'
-console.log(Hero)
 </script>
 
 <style scoped lang="scss">
