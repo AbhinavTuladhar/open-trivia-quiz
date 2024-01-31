@@ -2,7 +2,7 @@
   <main class="quiz-view-container">
     <Instructions />
     <OptionsContainer />
-    <RouterLink to="/">
+    <RouterLink to="/quiz/play">
       <button role="link" class="quiz-start-btn" @click="handleClick">Start the quiz!</button>
     </RouterLink>
   </main>
