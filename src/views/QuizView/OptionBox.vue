@@ -12,7 +12,6 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
 import { toRefs } from 'vue'
-import { defineProps } from 'vue'
 
 interface OptionsBoxProps {
   inputLabel: string

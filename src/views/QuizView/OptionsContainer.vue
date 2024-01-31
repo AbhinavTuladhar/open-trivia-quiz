@@ -1,11 +1,11 @@
 <template>
   <section class="options-container">
     <OptionBox
-      v-for="({ label: inputLabel, options }, index) in optionsData"
+      v-for="{ label: inputLabel, options, modeller } in optionsData"
       :key="inputLabel"
       :input-label="inputLabel"
       :options="options"
-      :modeller="optionsData[index].modeller"
+      :modeller="modeller"
     />
   </section>
 </template>
