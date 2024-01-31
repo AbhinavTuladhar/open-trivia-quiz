@@ -1,7 +1,7 @@
 <template>
   <section class="hero">
     <div class="col-1">
-      <h1>Play Online Quizzes and Win Prizes Daily!</h1>
+      <h1>Play Online Quizzes & Win Prizes Daily!</h1>
       <p>Win upto Rs.5000 monthly!</p>
       <button class="col-1__register-btn">Register now!</button>
 

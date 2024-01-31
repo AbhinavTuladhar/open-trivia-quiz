@@ -2,7 +2,9 @@
   <main class="quiz-view-container">
     <Instructions />
     <OptionsContainer />
-    <button class="quiz-start-btn" @click="handleClick">Start the quiz!</button>
+    <RouterLink to="/">
+      <button role="link" class="quiz-start-btn" @click="handleClick">Start the quiz!</button>
+    </RouterLink>
   </main>
 </template>
 
@@ -13,11 +15,14 @@ import { useOptionsStore } from '@/stores/options'
 import makeUrl from '@/helpers/makeUrl'
 import { storeToRefs } from 'pinia'
 
-const { category, difficulty, questionType } = storeToRefs(useOptionsStore())
+const optionsStoreValues = useOptionsStore()
+const { setUrl } = optionsStoreValues
+const { category, difficulty, questionType } = storeToRefs(optionsStoreValues)
 
+// Set the url in Pinia store
 const handleClick = () => {
   const url = makeUrl(category.value, difficulty.value, questionType.value)
-  console.log(url)
+  setUrl(url)
 }
 </script>
 
@@ -27,7 +32,7 @@ const handleClick = () => {
   padding-block: 2rem;
 
   > * + * {
-    margin-top: 2rem;
+    margin-block: 2rem;
   }
 }
 
