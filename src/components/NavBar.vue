@@ -14,8 +14,8 @@ const linkData = [
     </RouterLink>
 
     <ul>
-      <li v-for="link in linkData" :key="link.text">
-        <a :href="link.href"> {{ link.text }} </a>
+      <li v-for="{ href, text } in linkData" :key="text">
+        <RouterLink :to="href"> {{ text }} </RouterLink>
       </li>
     </ul>
 
