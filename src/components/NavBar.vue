@@ -27,11 +27,12 @@ const linkData = [
 
 <style lang="scss" scoped>
 nav {
-  grid-column: full-width;
+  grid-column: breakout;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-inline: clamp(1rem, 0.571rem + 2.143vw, 2.5rem);
+  flex-wrap: wrap;
+  // padding-inline: clamp(1rem, 0.571rem + 2.143vw, 2.5rem);
   padding-block: 1rem;
   color: white;
 
