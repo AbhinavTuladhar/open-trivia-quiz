@@ -31,7 +31,7 @@ const { inputLabel, modeller, options } = toRefs(props)
 
   select {
     width: 100%;
-    padding: 1rem;
+    padding: 0.5rem 0.75rem;
   }
 }
 </style>
