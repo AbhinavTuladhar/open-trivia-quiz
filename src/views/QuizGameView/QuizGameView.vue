@@ -17,6 +17,15 @@ import { storeToRefs } from 'pinia'
 import { useQuestionsStore } from '@/stores/questions'
 import { onMounted } from 'vue'
 import decodeHtml from '@/helpers/decodeHtml'
+import { onBeforeRouteLeave } from 'vue-router'
+
+onBeforeRouteLeave((to) => {
+  if (to.name === 'home' || to.name === 'quiz') {
+    const confirmLeave = window.confirm('Are you sure you want to go back?')
+
+    return confirmLeave
+  }
+})
 
 const questionsStore = useQuestionsStore()
 const { fetchQuestions } = questionsStore
