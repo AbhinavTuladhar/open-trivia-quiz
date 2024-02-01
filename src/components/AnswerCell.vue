@@ -3,7 +3,7 @@
     class="answer-cell"
     :class="{
       correct: isCorrect && isAttempted,
-      wrong: isIncorrect
+      wrong: isSelected && !isCorrect && isAttempted
     }"
     @click="handleClick"
   >
@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, toRefs } from 'vue'
+import { toRefs } from 'vue'
 import decodeHtml from '@/helpers/decodeHtml'
 
 interface CellProps {
@@ -27,8 +27,7 @@ const emit = defineEmits(['answer-change'])
 
 const { text, isCorrect, isSelected, isAttempted } = toRefs(props)
 
-const isIncorrect = ref(isSelected.value && !isCorrect.value)
-
+// Giving the user only one chance to answer the question.
 const handleClick = () => {
   if (!isSelected.value && !isAttempted.value) {
     emit('answer-change', text.value)
@@ -54,15 +53,19 @@ const handleClick = () => {
   }
 }
 
+@mixin feedback-style($colour) {
+  background-color: $colour;
+
+  &:hover {
+    background-color: $colour;
+  }
+}
+
 .correct {
-  background-color: green;
+  @include feedback-style(green);
 }
 
 .wrong {
-  background-color: red;
-}
-
-.incorrect {
-  background-color: green;
+  @include feedback-style(red);
 }
 </style>
