@@ -45,6 +45,7 @@ nav {
 
   ul {
     display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
   }
 

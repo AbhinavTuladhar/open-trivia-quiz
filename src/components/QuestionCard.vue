@@ -91,5 +91,9 @@ const handleAnswerClick = (answer: string) => {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem 1rem;
+
+  @include breakpoint-max(small) {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
