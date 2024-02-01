@@ -44,6 +44,8 @@ const {
   question
 } = toRefs(props)
 
+const emit = defineEmits(['incrementCount'])
+
 const answersList = ref<Array<string>>([correctAnswer.value, ...incorrectAnswers.value])
 const selectedAnswer = ref<string>()
 const isAttempted = ref(false)
@@ -56,6 +58,7 @@ const shuffledArray = answersList.value
 const handleAnswerClick = (answer: string) => {
   selectedAnswer.value = answer
   isAttempted.value = true
+  emit('incrementCount')
 }
 </script>
 

@@ -14,6 +14,7 @@
         :incorrect_answers="incorrect_answers"
         :question="question"
         :key="index"
+        @increment-count="handleQuestionAttempt"
       />
     </section>
   </main>
@@ -22,10 +23,11 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useQuestionsStore } from '@/stores/questions'
-import { onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import QuestionCard from '@/components/QuestionCard.vue'
 
+// Warn the user if they try to leave the page.
 onBeforeRouteLeave((to) => {
   if (to.name === 'home' || to.name === 'quiz') {
     const confirmLeave = window.confirm('Are you sure you want to go back?')
@@ -38,8 +40,20 @@ const questionsStore = useQuestionsStore()
 const { fetchQuestions } = questionsStore
 const { error, loading, response } = storeToRefs(questionsStore)
 
+const attemptCount = ref(0)
+
+const handleQuestionAttempt = () => {
+  attemptCount.value += 1
+}
+
 onMounted(() => {
   fetchQuestions()
+})
+
+watch(attemptCount, () => {
+  if (attemptCount.value === 20) {
+    alert('You have attempted all the questions.')
+  }
 })
 </script>
 
