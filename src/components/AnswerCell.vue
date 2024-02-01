@@ -22,5 +22,16 @@ const { text, isCorrect } = toRefs(props)
   padding: 1rem 1.25rem;
   border: 1px solid silver;
   border-radius: 6px;
+  transition-duration: $transition-duration;
+
+  &:hover {
+    background-color: $surface-300;
+    color: white;
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: scale(0.985, 0.985);
+  }
 }
 </style>

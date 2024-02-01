@@ -46,6 +46,7 @@ onMounted(() => {
 <style scoped lang="scss">
 .main-container {
   grid-column: content;
+  padding-block: 2rem;
 }
 
 .question-container {
