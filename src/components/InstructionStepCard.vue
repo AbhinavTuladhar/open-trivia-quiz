@@ -26,6 +26,7 @@ const { bodyText, image, stepNumber } = defineProps<CardProps>()
   $bottom-padding: clamp(0.75rem, -0.679rem + 7.143vw, 5.75rem);
 
   padding: 0.75rem 1.125rem $bottom-padding 1.125rem;
+  background-color: $surface-200;
   border: 1px solid silver;
   border-radius: 8px;
 

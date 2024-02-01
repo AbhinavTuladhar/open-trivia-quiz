@@ -5,9 +5,9 @@
       <span> {{ decodeHtml(category) }}</span>
     </div>
     <div class="question-card__body">
-      <span> {{ decodeHtml(question) }}</span>
+      <span class="question-text"> {{ decodeHtml(question) }}</span>
       <p>Correct answer: {{ decodeHtml(correctAnswer) }}</p>
-      <div class="question-card__answers-container">
+      <div class="answers-container">
         <AnswerCell
           v-for="answer in shuffledArray"
           :key="answer"
@@ -53,6 +53,7 @@ const shuffledArray = answersList.value
 .question-card {
   $padding: 1rem;
 
+  background-color: $surface-200;
   border: 1px solid silver;
   border-radius: 8px;
 
@@ -70,11 +71,16 @@ const shuffledArray = answersList.value
       margin-top: 0.5rem;
     }
   }
+}
 
-  &__answers-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem 1rem;
-  }
+.question-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.answers-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 1rem;
 }
 </style>
