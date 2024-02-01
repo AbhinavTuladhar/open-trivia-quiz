@@ -4,9 +4,15 @@
     <div v-else-if="error">Encountered an error while fetching questions.</div>
     <div v-else-if="response?.response_code !== 0">Enough questions could not be found!</div>
     <section v-else class="question-container">
-      <div v-for="({ question, correct_answer: answer }, index) in response.results" :key="question">
+      <div v-for="({ question, correct_answer: answer, incorrect_answers }, index) in response.results" :key="question">
         <p>{{ index + 1 }}. {{ decodeHtml(question) }}</p>
-        <p>Answer: {{ answer }}</p>
+        <p>Answer: {{ decodeHtml(answer) }}</p>
+        <span>
+          Wrong answers:
+          <span v-for="answer in incorrect_answers" :key="answer">
+            {{ decodeHtml(answer) }}
+          </span>
+        </span>
       </div>
     </section>
   </main>

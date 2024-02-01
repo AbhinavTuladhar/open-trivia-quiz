@@ -5,7 +5,9 @@
         <h3>{{ title }}</h3>
         <ul class="footer-container__link-list">
           <li v-for="link in links" :key="link">
-            {{ link }}
+            <RouterLink to="/">
+              {{ link }}
+            </RouterLink>
           </li>
         </ul>
       </div>
