@@ -14,6 +14,7 @@
 <script setup lang="ts">
 import { toRefs } from 'vue'
 import decodeHtml from '@/helpers/decodeHtml'
+import { useProgressStore } from '@/stores/progress'
 
 interface CellProps {
   text: string
@@ -27,6 +28,9 @@ const emit = defineEmits(['answer-change'])
 
 const { text, isCorrect, isSelected, isAttempted } = toRefs(props)
 
+const progressStore = useProgressStore()
+const { handleClick: handleScoreChange } = progressStore
+
 // Giving the user only one chance to answer the question.
 const handleClick = () => {
   if (isAttempted.value) {
@@ -34,6 +38,8 @@ const handleClick = () => {
   }
   if (!isSelected.value && !isAttempted.value) {
     emit('answer-change', text.value)
+    // Change the number of attempted and correct questions in the store.
+    handleScoreChange(isCorrect.value)
   }
 }
 </script>
