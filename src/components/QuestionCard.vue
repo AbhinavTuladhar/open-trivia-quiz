@@ -6,7 +6,6 @@
     </div>
     <div class="question-card__body">
       <span class="question-text"> {{ decodeHtml(question) }}</span>
-      <p>Correct answer: {{ decodeHtml(correctAnswer) }}</p>
       <div class="answers-container">
         <AnswerCell
           v-for="answer in shuffledArray"

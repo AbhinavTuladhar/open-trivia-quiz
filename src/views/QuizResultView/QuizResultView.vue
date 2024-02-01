@@ -11,9 +11,9 @@
       <h2>
         <span> You got </span>
         <span> {{ correctCount }}</span>
-        <span> out of 20 questions correctly. </span>
+        <span> out of 20 questions correct. </span>
       </h2>
-      <p>That is {{ correctPercentage }}%!</p>
+      <p>That's {{ correctPercentage }}%!</p>
       <RouterLink to="/quiz">
         <button class="replay-button">Click here to play again!</button>
       </RouterLink>
