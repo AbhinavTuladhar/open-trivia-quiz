@@ -4,16 +4,17 @@
     <div v-else-if="error">Encountered an error while fetching questions.</div>
     <div v-else-if="response?.response_code !== 0">Enough questions could not be found!</div>
     <section v-else class="question-container">
-      <div v-for="({ question, correct_answer: answer, incorrect_answers }, index) in response.results" :key="question">
-        <p>{{ index + 1 }}. {{ decodeHtml(question) }}</p>
-        <p>Answer: {{ decodeHtml(answer) }}</p>
-        <span>
-          Wrong answers:
-          <span v-for="answer in incorrect_answers" :key="answer">
-            {{ decodeHtml(answer) }}
-          </span>
-        </span>
-      </div>
+      <QuestionCard
+        v-for="(
+          { category, correct_answer, incorrect_answers, question }, index
+        ) in response.results"
+        :index="index"
+        :category="category"
+        :correct_answer="correct_answer"
+        :incorrect_answers="incorrect_answers"
+        :question="question"
+        :key="index"
+      />
     </section>
   </main>
 </template>
@@ -22,8 +23,8 @@
 import { storeToRefs } from 'pinia'
 import { useQuestionsStore } from '@/stores/questions'
 import { onMounted } from 'vue'
-import decodeHtml from '@/helpers/decodeHtml'
 import { onBeforeRouteLeave } from 'vue-router'
+import QuestionCard from '@/components/QuestionCard.vue'
 
 onBeforeRouteLeave((to) => {
   if (to.name === 'home' || to.name === 'quiz') {
