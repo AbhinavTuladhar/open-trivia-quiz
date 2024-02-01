@@ -52,7 +52,9 @@ onMounted(() => {
 
 watch(attemptCount, () => {
   if (attemptCount.value === 20) {
-    alert('You have attempted all the questions.')
+    setTimeout(() => {
+      alert('You have attempted all the questions.')
+    }, 1000)
   }
 })
 </script>
