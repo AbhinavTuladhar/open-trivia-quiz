@@ -13,6 +13,9 @@
           :key="answer"
           :text="answer"
           :is-correct="answer === correctAnswer"
+          :is-selected="answer === selectedAnswer"
+          :is-attempted="isAttempted"
+          @answer-change="handleAnswerClick"
         />
       </div>
     </div>
@@ -42,11 +45,18 @@ const {
 } = toRefs(props)
 
 const answersList = ref<Array<string>>([correctAnswer.value, ...incorrectAnswers.value])
+const selectedAnswer = ref<string>()
+const isAttempted = ref(false)
 
 const shuffledArray = answersList.value
   .map((answer) => ({ value: answer, key: Math.random() }))
   .sort((a, b) => a.key - b.key)
   .map((row) => row.value)
+
+const handleAnswerClick = (answer: string) => {
+  selectedAnswer.value = answer
+  isAttempted.value = true
+}
 </script>
 
 <style scoped lang="scss">

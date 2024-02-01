@@ -1,20 +1,39 @@
 <template>
-  <div class="answer-cell">
+  <div
+    class="answer-cell"
+    :class="{
+      correct: isCorrect && isAttempted,
+      wrong: isIncorrect
+    }"
+    @click="handleClick"
+  >
     <span> {{ decodeHtml(text) }}</span>
   </div>
 </template>
 
 <script setup lang="ts">
-import { toRefs } from 'vue'
+import { ref, toRefs } from 'vue'
 import decodeHtml from '@/helpers/decodeHtml'
 
 interface CellProps {
   text: string
   isCorrect: boolean
+  isSelected: boolean
+  isAttempted: boolean
 }
 
 const props = defineProps<CellProps>()
-const { text, isCorrect } = toRefs(props)
+const emit = defineEmits(['answer-change'])
+
+const { text, isCorrect, isSelected, isAttempted } = toRefs(props)
+
+const isIncorrect = ref(isSelected.value && !isCorrect.value)
+
+const handleClick = () => {
+  if (!isSelected.value && !isAttempted.value) {
+    emit('answer-change', text.value)
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -33,5 +52,17 @@ const { text, isCorrect } = toRefs(props)
   &:active {
     transform: scale(0.985, 0.985);
   }
+}
+
+.correct {
+  background-color: green;
+}
+
+.wrong {
+  background-color: red;
+}
+
+.incorrect {
+  background-color: green;
 }
 </style>
