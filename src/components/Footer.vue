@@ -27,7 +27,7 @@ const footerData = [
 <style scoped lang="scss">
 footer {
   grid-column: full-width;
-  background-color: $primary-green;
+  background-color: $primary-100;
 }
 
 .footer-container {

@@ -55,7 +55,7 @@ import Hero from '@/assets/images/hero.jpg'
     transition-duration: $transition-duration;
 
     &:hover {
-      color: $primary-colour;
+      color: $surface-100;
       background-color: white;
       cursor: pointer;
     }
@@ -66,7 +66,12 @@ import Hero from '@/assets/images/hero.jpg'
   }
 
   &__users-div {
-    @include flex-box($direction: column, $gap: 1rem, $align-items: center, $justify-content: flex-start);
+    @include flex-box(
+      $direction: column,
+      $gap: 1rem,
+      $align-items: center,
+      $justify-content: flex-start
+    );
     text-align: center;
     width: fit-content;
   }

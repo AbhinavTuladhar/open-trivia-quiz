@@ -32,7 +32,7 @@ const instructionData = [
 .instruction-container {
   grid-column: full-width;
   padding-block: clamp(2rem, -1.839rem + 10.238vw, 7.375rem);
-  background-color: $primary-green;
+  background-color: $primary-100;
   color: white;
 }
 

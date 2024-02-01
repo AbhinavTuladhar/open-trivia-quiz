@@ -50,7 +50,7 @@ nav {
     transition-duration: $transition-duration;
 
     &:hover {
-      color: $primary-colour;
+      color: $surface-100;
       background-color: white;
       cursor: pointer;
     }

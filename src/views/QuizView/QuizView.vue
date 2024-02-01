@@ -39,7 +39,7 @@ const handleClick = () => {
 .quiz-start-btn {
   width: 100%;
   padding-block: 1rem;
-  background-color: $primary-green;
+  background-color: $primary-100;
   color: white;
   border: 1px solid transparent;
   font-size: 1.5rem;
