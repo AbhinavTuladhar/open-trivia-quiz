@@ -4,17 +4,8 @@
     <div v-else-if="error">Encountered an error while fetching questions.</div>
     <div v-else-if="response?.response_code !== 0">Enough questions could not be found!</div>
     <section v-else class="question-container">
-      <QuestionCard
-        v-for="(
-          { category, correct_answer, incorrect_answers, question }, index
-        ) in response.results"
-        :index="index"
-        :category="category"
-        :correct_answer="correct_answer"
-        :incorrect_answers="incorrect_answers"
-        :question="question"
-        :key="index"
-      />
+      <QuizInfo />
+      <QuestionsContainer :question-data="response.results" />
     </section>
   </main>
 </template>
@@ -25,7 +16,8 @@ import { useRouter, onBeforeRouteLeave } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useQuestionsStore } from '@/stores/questions'
 import { useProgressStore } from '@/stores/progress'
-import QuestionCard from '@/components/QuestionCard.vue'
+import QuestionsContainer from './QuestionsContainer.vue'
+import QuizInfo from './QuizInfo.vue'
 
 // Warn the user if they try to leave the page.
 onBeforeRouteLeave((to) => {
@@ -66,11 +58,5 @@ watch(attemptedCount, () => {
 .main-container {
   grid-column: content;
   padding-block: 2rem;
-}
-
-.question-container {
-  > * + * {
-    margin-top: 1rem;
-  }
 }
 </style>
