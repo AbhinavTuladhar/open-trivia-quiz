@@ -29,6 +29,9 @@ const { text, isCorrect, isSelected, isAttempted } = toRefs(props)
 
 // Giving the user only one chance to answer the question.
 const handleClick = () => {
+  if (isAttempted.value) {
+    alert('You have already attempted this question.')
+  }
   if (!isSelected.value && !isAttempted.value) {
     emit('answer-change', text.value)
   }

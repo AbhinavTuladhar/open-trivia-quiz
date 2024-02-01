@@ -26,6 +26,7 @@ import { useQuestionsStore } from '@/stores/questions'
 import { ref, onMounted, watch } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import QuestionCard from '@/components/QuestionCard.vue'
+import { useRouter } from 'vue-router'
 
 // Warn the user if they try to leave the page.
 onBeforeRouteLeave((to) => {
@@ -41,6 +42,7 @@ const { fetchQuestions } = questionsStore
 const { error, loading, response } = storeToRefs(questionsStore)
 
 const attemptCount = ref(0)
+const router = useRouter()
 
 const handleQuestionAttempt = () => {
   attemptCount.value += 1
@@ -54,6 +56,7 @@ watch(attemptCount, () => {
   if (attemptCount.value === 20) {
     setTimeout(() => {
       alert('You have attempted all the questions.')
+      router.push('/quiz/result')
     }, 1000)
   }
 })
