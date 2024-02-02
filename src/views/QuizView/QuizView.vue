@@ -37,8 +37,8 @@ const handleClick = () => {
 }
 
 .quiz-start-btn {
-  width: 100%;
-  padding-block: 1rem;
+  justify-self: center;
+  padding: clamp(0.5rem, 0.357rem + 0.714vw, 1rem);
   background-color: $primary-100;
   color: white;
   border: 1px solid transparent;
