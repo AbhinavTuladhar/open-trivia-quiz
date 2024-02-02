@@ -28,6 +28,7 @@ const { isOpen } = toRefs(props)
   }
 
   &.show {
+    margin-top: 1rem;
     grid-template-rows: 1fr;
     opacity: 1;
   }

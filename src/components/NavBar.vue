@@ -1,7 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import Hamburger from '@/assets/images/hamburger.svg'
 import Accordion from '@/components/Accordion.vue'
+
+const router = useRouter()
+const currentPath = router.currentRoute
+
+// Close the mobile menu whenever the route changes.
+watch(currentPath, () => {
+  isMenuOpen.value = false
+})
 
 const isMenuOpen = ref(false)
 
@@ -38,7 +47,7 @@ const toggleMenu = () => {
       </RouterLink>
 
       <!-- Mobile links -->
-      <div class="mobile-container" :class="{ 'mobile-container--bordered': isMenuOpen }">
+      <div class="mobile-container">
         <Accordion :is-open="isMenuOpen">
           <ul class="mobile-links">
             <li v-for="{ href, text } in linkData" :key="text">
@@ -136,10 +145,12 @@ nav {
 
   display: block;
   width: 100%;
-  margin-top: 1rem;
 
-  &--bordered {
+  > :first-child {
     border-top: 1px solid $border-colour;
+  }
+
+  > :last-child {
     border-bottom: 1px solid $border-colour;
   }
 
@@ -151,9 +162,6 @@ nav {
     border-bottom: 1px solid $border-colour;
 
     > * {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
       padding-block: 0.5rem;
     }
     > * + * {
