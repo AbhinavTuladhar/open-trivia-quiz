@@ -64,9 +64,11 @@ const toggleMenu = () => {
 </template>
 
 <style lang="scss" scoped>
+// Padding between items for only mobile view.
+$vertical-padding: 0.5rem;
+
 nav {
   grid-column: full-width;
-  // padding-inline: clamp(1rem, 0.571rem + 2.143vw, 2.5rem);
   padding-block: 1rem;
   color: white;
   border-bottom: 2px solid $surface-300;
@@ -129,9 +131,8 @@ nav {
     }
 
     &--mobile {
-      display: flex;
-      justify-content: flex-start;
-      margin-block: 1rem;
+      display: inline-block;
+      margin-block: $vertical-padding;
 
       @include breakpoint-min(medium) {
         display: none;
@@ -162,7 +163,7 @@ nav {
     border-bottom: 1px solid $border-colour;
 
     > * {
-      padding-block: 0.5rem;
+      padding-block: $vertical-padding;
     }
     > * + * {
       border-top: 1px solid $border-colour;
