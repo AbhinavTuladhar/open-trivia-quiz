@@ -1,5 +1,5 @@
 <template>
-  <main class="main-container">
+  <section class="questions-container">
     <QuestionCard
       v-for="({ category, correct_answer, incorrect_answers, question }, index) in questionData"
       :index="index"
@@ -9,7 +9,7 @@
       :question="question"
       :key="index"
     />
-  </main>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -26,7 +26,7 @@ const { questionData } = toRefs(props)
 </script>
 
 <style scoped lang="scss">
-.main-container {
+.questions-container {
   > * + * {
     margin-top: 1rem;
   }

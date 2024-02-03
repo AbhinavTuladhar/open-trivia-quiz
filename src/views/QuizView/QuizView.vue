@@ -2,9 +2,11 @@
   <main class="quiz-view-container">
     <Instructions />
     <OptionsContainer />
-    <RouterLink to="/quiz/play">
-      <button role="link" class="quiz-start-btn" @click="handleClick">Start the quiz!</button>
-    </RouterLink>
+    <div>
+      <RouterLink to="/quiz/play">
+        <button role="link" class="quiz-start-btn" @click="handleClick">Start the quiz!</button>
+      </RouterLink>
+    </div>
   </main>
 </template>
 
@@ -32,7 +34,7 @@ const handleClick = () => {
   padding-block: 2rem;
 
   > * + * {
-    margin-block: 2rem;
+    margin-top: 2rem;
   }
 }
 

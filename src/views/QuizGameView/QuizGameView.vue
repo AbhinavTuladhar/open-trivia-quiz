@@ -3,16 +3,30 @@
     <div v-if="loading">Loading the questions...</div>
     <div v-else-if="error">Encountered an error while fetching questions.</div>
     <div v-else-if="response?.response_code !== 0">Enough questions could not be found!</div>
-    <section v-else class="question-container">
+    <section v-else class="page-container">
       <QuizInfo />
       <QuestionsContainer :question-data="response.results" />
+      <div class="button-row">
+        <RouterLink to="/quiz/result">
+          <button
+            class="result-button"
+            :disabled="isButtonDisabled"
+            :class="{
+              'result-button--enabled': !isButtonDisabled,
+              'result-button--disabled': isButtonDisabled
+            }"
+          >
+            See result
+          </button>
+        </RouterLink>
+      </div>
     </section>
   </main>
 </template>
 
 <script setup lang="ts">
-import { onMounted, watch } from 'vue'
-import { useRouter, onBeforeRouteLeave } from 'vue-router'
+import { onMounted, watch, computed } from 'vue'
+import { onBeforeRouteLeave } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useQuestionsStore } from '@/stores/questions'
 import { useProgressStore } from '@/stores/progress'
@@ -36,7 +50,7 @@ const progress = useProgressStore()
 const { resetCounts } = progress
 const { attemptedCount } = storeToRefs(progress)
 
-const router = useRouter()
+const isButtonDisabled = computed(() => attemptedCount.value !== 20)
 
 onMounted(() => {
   fetchQuestions()
@@ -48,8 +62,7 @@ watch(attemptedCount, () => {
   if (attemptedCount.value === 20) {
     setTimeout(() => {
       alert('You have attempted all the questions.')
-      router.push('/quiz/result')
-    }, 1000)
+    }, 500)
   }
 })
 </script>
@@ -58,5 +71,33 @@ watch(attemptedCount, () => {
 .main-container {
   grid-column: content;
   padding-block: 2rem;
+}
+
+.page-container {
+  > * + * {
+    margin-top: 1rem;
+  }
+}
+
+.result-button {
+  padding: 0.5rem 1rem;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition-duration: $transition-duration;
+
+  &--enabled {
+    background-color: $primary-200;
+    &:hover {
+      cursor: pointer;
+      background-color: seagreen;
+    }
+  }
+
+  &--disabled {
+    background-color: gray;
+  }
 }
 </style>
