@@ -9,11 +9,11 @@
       <div class="button-row">
         <RouterLink to="/quiz/result">
           <button
-            class="result-button"
+            class="coloured-btn"
             :disabled="isButtonDisabled"
             :class="{
-              'result-button--enabled': !isButtonDisabled,
-              'result-button--disabled': isButtonDisabled
+              'coloured-btn--enabled': !isButtonDisabled,
+              'coloured-btn--disabled': isButtonDisabled
             }"
           >
             See result
@@ -76,28 +76,6 @@ watch(attemptedCount, () => {
 .page-container {
   > * + * {
     margin-top: 1rem;
-  }
-}
-
-.result-button {
-  padding: 0.5rem 1rem;
-  color: white;
-  font-size: 1.25rem;
-  font-weight: bold;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  transition-duration: $transition-duration;
-
-  &--enabled {
-    background-color: $primary-200;
-    &:hover {
-      cursor: pointer;
-      background-color: seagreen;
-    }
-  }
-
-  &--disabled {
-    background-color: gray;
   }
 }
 </style>

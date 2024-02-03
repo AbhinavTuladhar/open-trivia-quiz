@@ -1,0 +1,24 @@
+@use "../utils/" as utils;
+
+.coloured-btn {
+  padding: clamp(0.5rem, 0.357rem + 0.714vw, 1rem);
+  background-color: utils.$primary-100;
+  color: white;
+  border: 1px solid transparent;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 12px;
+  transition-duration: utils.$transition-duration;
+
+  &--enabled {
+    background-color: utils.$primary-100;
+    &:hover {
+      cursor: pointer;
+      background-color: seagreen;
+    }
+  }
+
+  &--disabled {
+    background-color: gray;
+  }
+}

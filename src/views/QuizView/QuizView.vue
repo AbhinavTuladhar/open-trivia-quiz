@@ -4,7 +4,9 @@
     <OptionsContainer />
     <div>
       <RouterLink to="/quiz/play">
-        <button role="link" class="quiz-start-btn" @click="handleClick">Start the quiz!</button>
+        <button role="link" class="coloured-btn coloured-btn--enabled" @click="handleClick">
+          Start the quiz!
+        </button>
       </RouterLink>
     </div>
   </main>
@@ -35,23 +37,6 @@ const handleClick = () => {
 
   > * + * {
     margin-top: 2rem;
-  }
-}
-
-.quiz-start-btn {
-  justify-self: center;
-  padding: clamp(0.5rem, 0.357rem + 0.714vw, 1rem);
-  background-color: $primary-100;
-  color: white;
-  border: 1px solid transparent;
-  font-size: 1.5rem;
-  font-weight: bold;
-  border-radius: 12px;
-  transition-duration: $transition-duration;
-
-  &:hover {
-    background-color: seagreen;
-    cursor: pointer;
   }
 }
 </style>
