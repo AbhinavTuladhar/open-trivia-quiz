@@ -42,9 +42,11 @@ const toggleMenu = () => {
         </li>
       </ul>
 
-      <RouterLink to="/quiz" class="quiz-button">
-        <button>Play now!</button>
-      </RouterLink>
+      <div class="btn-laptop">
+        <RouterLink to="/quiz">
+          <button class="transparent-btn transparent-btn--regular">Play now!</button>
+        </RouterLink>
+      </div>
 
       <!-- Mobile links -->
       <div class="mobile-container">
@@ -54,9 +56,11 @@ const toggleMenu = () => {
               <RouterLink :to="href"> {{ text }} </RouterLink>
             </li>
           </ul>
-          <RouterLink to="/quiz" class="quiz-button quiz-button--mobile">
-            <button>Play now!</button>
-          </RouterLink>
+          <div class="btn-mobile">
+            <RouterLink to="/quiz">
+              <button class="transparent-btn transparent-btn--regular">Play now!</button>
+            </RouterLink>
+          </div>
         </Accordion>
       </div>
     </div>
@@ -105,38 +109,20 @@ nav {
     }
   }
 
-  .quiz-button {
+  .btn-laptop {
     display: none;
-    border: 1px solid white;
-    border-radius: 8px;
-
-    button {
-      padding: 0.5rem 1.5rem;
-      background-color: transparent;
-      color: white;
-      justify-self: start;
-      transition-duration: $transition-duration;
-      border: none;
-      border-radius: 4px;
-
-      &:hover {
-        color: $surface-100;
-        background-color: white;
-        cursor: pointer;
-      }
-    }
 
     @include breakpoint-min(medium) {
       display: block;
     }
+  }
 
-    &--mobile {
-      display: inline-block;
-      margin-block: $vertical-padding;
+  .btn-mobile {
+    display: block;
+    padding-block: $vertical-padding;
 
-      @include breakpoint-min(medium) {
-        display: none;
-      }
+    @include breakpoint-min(medium) {
+      display: none;
     }
   }
 }

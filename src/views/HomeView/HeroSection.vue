@@ -3,7 +3,7 @@
     <div class="col-1">
       <h1>Play Online Quizzes & Win Prizes Daily!</h1>
       <p>Win upto Rs.5000 monthly!</p>
-      <button class="col-1__register-btn">Register now!</button>
+      <button class="transparent-btn transparent-btn--large register-btn">Register now!</button>
 
       <div class="col-1__users-div">
         <span class="col-1__users-title">Number of active users right now</span>
@@ -31,7 +31,6 @@ import Hero from '@/assets/images/hero.jpg'
   column-gap: 5rem;
 
   &__image {
-    // width: min(693px, 100%);
     width: 100%;
   }
 }
@@ -43,26 +42,6 @@ import Hero from '@/assets/images/hero.jpg'
 
   p {
     font-size: clamp(1.125rem, 1rem + 0.625vw, 1.563rem);
-  }
-
-  &__register-btn {
-    padding: 1rem 2.5rem;
-    background-color: transparent;
-    color: white;
-    font-size: clamp(1.125rem, 1.089rem + 0.179vw, 1.25rem);
-    border: 1px solid white;
-    border-radius: 4px;
-    transition-duration: $transition-duration;
-
-    &:hover {
-      color: $surface-100;
-      background-color: white;
-      cursor: pointer;
-    }
-
-    &:active {
-      transform: scale(0.975, 0.975);
-    }
   }
 
   &__users-div {
@@ -84,6 +63,14 @@ import Hero from '@/assets/images/hero.jpg'
   &__users-count {
     font-size: clamp(1.5rem, 0.946rem + 2.768vw, 3.438rem);
     font-weight: bold;
+  }
+}
+
+.register-btn {
+  font-size: clamp(1.125rem, 1.089rem + 0.179vw, 1.25rem);
+
+  &:active {
+    transform: scale(0.975, 0.975);
   }
 }
 </style>
