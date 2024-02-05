@@ -29,6 +29,9 @@ const { bodyText, image, stepNumber } = defineProps<CardProps>()
   background-color: $surface-200;
   border: 1px solid silver;
   border-radius: 8px;
+  box-shadow:
+    rgba(0, 0, 0, 0.4) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.4) 0px 10px 10px -5px;
 
   > * + * {
     margin-top: 3.375rem;

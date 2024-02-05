@@ -25,6 +25,7 @@ const { alt, description, image, title } = defineProps<QuizCategoryCardProps>()
   background-color: $surface-200;
   border: 1px solid azure;
   border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 15px 25px;
 
   > * + * {
     margin-top: 1.25rem;
