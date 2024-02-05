@@ -37,7 +37,7 @@ const instructionData = [
 }
 
 .main-content {
-  grid-column: breakout;
+  grid-column: content;
 
   > * + * {
     margin-top: 2rem;
@@ -45,7 +45,7 @@ const instructionData = [
 }
 
 .card-container {
-  grid-column: breakout;
+  grid-column: content;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(288px, 100%), 1fr));
   gap: 2rem;
