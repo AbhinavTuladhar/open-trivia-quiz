@@ -1,0 +1,76 @@
+<template>
+  <section class="quiz-categories">
+    <div class="quiz-categories__header">
+      <h2>Explore our quiz categories</h2>
+      <button class="transparent-btn transparent-btn--large">EXPLORE ALL</button>
+    </div>
+    <div class="quiz-categories__card-container">
+      <QuizCategoryCard
+        v-for="({ alt, image, title, body }, index) in quizCategoryData"
+        :key="index"
+        :alt="alt"
+        :image="image"
+        :title="title"
+        :description="body"
+      />
+    </div>
+  </section>
+</template>
+
+<script setup lang="ts">
+import Abascus from '@/assets/images/abascus.png'
+import English from '@/assets/images/english.png'
+import Microscope from '@/assets/images/microscope.png'
+import Books from '@/assets/images/books.png'
+import QuizCategoryCard from '@/components/QuizCategoryCard.vue'
+
+const quizCategoryData = [
+  {
+    image: Abascus,
+    alt: 'An abascus',
+    title: 'Mathematics',
+    body: 'Challenge your maths skills with fun problems!'
+  },
+  {
+    image: English,
+    alt: 'Guy standing in front of a board',
+    title: 'English',
+    body: 'Explore English words and grammar!'
+  },
+  {
+    image: Microscope,
+    alt: 'A weird microscope',
+    title: 'Science',
+    body: 'Discover the wonders of physics, chemistry, biology and more!'
+  },
+  {
+    image: Books,
+    alt: 'A pile of books',
+    title: 'General knowledge',
+    body: 'Test your awareness on diverse topics!'
+  }
+]
+</script>
+<style scoped lang="scss">
+.quiz-categories {
+  grid-column: content;
+  padding-block: clamp(1rem, 0.429rem + 2.857vw, 3rem);
+
+  > * + * {
+    margin-top: 2rem;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  &__card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    gap: 2rem;
+  }
+}
+</style>
