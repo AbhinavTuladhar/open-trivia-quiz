@@ -32,28 +32,32 @@
   border: 1px solid transparent;
   border-radius: 12px;
 
-  &::after {
-    background-color: seagreen;
-    transform: scaleX(0);
-    transform-origin: left;
-    border-radius: 12px;
-  }
-
-  &:hover {
-    cursor: pointer;
-
-    &::after {
-      transform: scaleX(1);
-      transform-origin: right;
-    }
-  }
-
   &--enabled {
     background-color: utils.$primary-100;
+
+    &::after {
+      background-color: seagreen;
+      transform: scaleX(0);
+      transform-origin: left;
+      border-radius: 12px;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      &::after {
+        transform: scaleX(1);
+        transform-origin: right;
+      }
+    }
   }
 
   &--disabled {
     background-color: gray;
+
+    &:hover {
+      cursor: not-allowed;
+    }
   }
 }
 

@@ -49,6 +49,9 @@ const handleSubmit = () => {
   width: clamp(280px, 155px + 39.286vw, 720px);
   margin-inline: auto;
   border-radius: 8px;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.4),
+    0 6px 20px 0 rgba(0, 0, 0, 0.2);
 
   > * + * {
     margin-top: 1rem;

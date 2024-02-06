@@ -84,6 +84,9 @@ const cardData = [
   row-gap: 2rem;
   grid-column: auto;
   max-width: 100%;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   @include breakpoint-min(medium) {
     grid-column: span 2 / span 2;
@@ -101,9 +104,9 @@ const cardData = [
     flex-direction: column;
     gap: 2rem;
     justify-content: center;
-    padding-inline: 3rem;
+    padding: 1rem 2.5rem;
     font-size: 1.25rem;
-    line-height: 2em;
+    line-height: clamp(1.2em, 0.971em + 1.143vw, 2em);
     height: 100%;
     flex: 1;
   }

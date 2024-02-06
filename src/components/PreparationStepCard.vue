@@ -28,6 +28,9 @@ const { image, title, alt } = defineProps<StepCardProps>()
   gap: 2rem;
   border-radius: 12px;
   padding-block: 2rem;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   &__image {
     width: clamp(6.438rem, 4.598rem + 9.196vw, 12.875rem);
