@@ -12,6 +12,13 @@
         </ul>
       </div>
     </div>
+    <div class="copyright">
+      <small> Copyright &copy; ABC. All rights reserved.</small>
+      <div class="copyright__links-div">
+        <RouterLink to="/"> Privacy Policy</RouterLink>
+        <RouterLink to="/"> Terms of Use</RouterLink>
+      </div>
+    </div>
   </footer>
 </template>
 
@@ -20,7 +27,7 @@ const footerData = [
   { title: 'Explore', links: ['Home', 'About us', 'Contact', 'FAQs'] },
   { title: 'Categories', links: ['General knowledge', 'Entertainment', 'Science', 'History'] },
   { title: 'More about us!', links: ['Our story', 'Our team'] },
-  { title: 'Other stuff!', links: ['Privacy policy', 'Terms of service'] }
+  { title: 'Social Links', links: ['Facebook', 'Instagram', 'YouTube'] }
 ]
 </script>
 
@@ -74,6 +81,19 @@ footer {
       transform: scaleX(1);
       transform-origin: left;
     }
+  }
+}
+
+.copyright {
+  grid-column: breakout;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-block: 2rem;
+  border-top: 1px solid $primary-300;
+
+  &__links-div {
+    @include flex-box($gap: 2rem);
   }
 }
 </style>
