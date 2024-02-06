@@ -4,7 +4,7 @@
       <div v-for="{ links, title } in footerData" :key="title" class="footer-container__column">
         <h3>{{ title }}</h3>
         <ul class="footer-container__link-list">
-          <li v-for="link in links" :key="link">
+          <li v-for="link in links" :key="link" class="footer-link">
             <RouterLink to="/">
               {{ link }}
             </RouterLink>
@@ -45,7 +45,34 @@ footer {
 
   &__link-list {
     > * + * {
-      margin-top: 0.5rem;
+      margin-top: 0.75rem;
+    }
+  }
+}
+
+.footer-link {
+  position: relative;
+  width: max-content;
+
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: white;
+    left: 0;
+    bottom: -0.25rem;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transition: transform $transition-duration ease;
+    transform-origin: right;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    &::after {
+      transform: scaleX(1);
+      transform-origin: left;
     }
   }
 }

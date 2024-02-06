@@ -37,7 +37,7 @@ const toggleMenu = () => {
 
       <!-- For desktop links -->
       <ul class="link-items desktop-links">
-        <li v-for="{ href, text } in linkData" :key="text">
+        <li v-for="{ href, text } in linkData" :key="text" class="desktop-link">
           <RouterLink :to="href"> {{ text }} </RouterLink>
         </li>
       </ul>
@@ -124,6 +124,27 @@ nav {
     @include breakpoint-min(medium) {
       display: none;
     }
+  }
+}
+
+.desktop-link {
+  position: relative;
+  transition: all 0.6s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    bottom: -0.5rem;
+    height: 2px;
+    background-color: white;
+    transition: all $transition-duration ease-in-out;
+  }
+
+  &:hover::after {
+    width: 100%;
   }
 }
 

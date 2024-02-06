@@ -29,7 +29,7 @@ const { date, image, title } = defineProps<CardProps>()
   &__title {
     display: inline;
     background-image: linear-gradient(white, white);
-    background-size: 0% 1px;
+    background-size: 15% 1px;
     background-repeat: no-repeat;
     background-position: left 1.25rem;
     transition: all ease-out $transition-duration;

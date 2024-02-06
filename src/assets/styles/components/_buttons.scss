@@ -67,7 +67,7 @@
 
   &::after {
     background-color: white;
-    transition: transform utils.$transition-duration ease-in-out;
+    transition: transform utils.$transition-duration cubic-bezier(0.215, 0.61, 0.355, 1);
     transform: scaleX(0);
     transform-origin: right;
   }
@@ -98,19 +98,19 @@
   font-weight: bold;
   border: none;
   border-radius: 8px;
-  transition-duration: utils.$transition-duration;
 
   &::after {
     background-color: seagreen;
     border-radius: 8px;
-    transform: scaleY(0);
-    transform-origin: bottom;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform utils.$transition-duration cubic-bezier(0.6, -0.28, 0.735, 0.045);
   }
 
   &:hover {
     &::after {
       transform: scaleX(1);
-      transform-origin: top;
+      transform-origin: center;
     }
   }
 }
