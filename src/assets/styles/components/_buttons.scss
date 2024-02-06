@@ -1,6 +1,7 @@
 @use "../utils/" as utils;
 
 .coloured-btn {
+  position: relative;
   padding: clamp(0.5rem, 0.357rem + 0.714vw, 1rem);
   background-color: utils.$primary-100;
   color: white;
@@ -8,14 +9,35 @@
   font-size: 1.5rem;
   font-weight: bold;
   border-radius: 12px;
-  transition-duration: utils.$transition-duration;
+  transition: none;
+  z-index: 1;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: seagreen;
+    z-index: -1;
+    transition: transform utils.$transition-duration ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+    border-radius: 12px;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    &::after {
+      transform: scaleX(1);
+      transform-origin: right;
+    }
+  }
 
   &--enabled {
     background-color: utils.$primary-100;
-    &:hover {
-      cursor: pointer;
-      background-color: seagreen;
-    }
   }
 
   &--disabled {
@@ -24,11 +46,37 @@
 }
 
 .transparent-btn {
+  position: relative;
   background-color: transparent;
   color: white;
   border: 1px solid white;
   transition-duration: utils.$transition-duration;
   border-radius: 4px;
+  z-index: 1;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    z-index: -1;
+    transition: transform utils.$transition-duration ease-in-out;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+
+  &:hover {
+    color: black;
+    cursor: pointer;
+
+    &::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
 
   &--large {
     padding: 1rem 2.5rem;
@@ -37,12 +85,6 @@
 
   &--regular {
     padding: 0.5rem 1.5rem;
-  }
-
-  &:hover {
-    cursor: pointer;
-    background-color: white;
-    color: black;
   }
 }
 
