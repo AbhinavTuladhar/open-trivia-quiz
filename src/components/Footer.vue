@@ -32,7 +32,7 @@ footer {
 
 .footer-container {
   grid-column: breakout;
-  padding-block: 2rem;
+  padding-block: clamp(1rem, 0.429rem + 2.857vw, 3rem);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
   gap: 2rem;

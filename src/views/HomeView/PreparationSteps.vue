@@ -10,7 +10,6 @@
     <div class="preparation-steps__grid-container">
       <!-- Making a different card which spans two columns. -->
       <article class="special-card">
-        <!-- The left half -->
         <div class="special-card__left">
           <h3>Model Test</h3>
           <p>
@@ -82,7 +81,9 @@ const cardData = [
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 100%;
+  row-gap: 2rem;
+  grid-column: auto;
+  max-width: 100%;
 
   @include breakpoint-min(medium) {
     grid-column: span 2 / span 2;
@@ -91,7 +92,6 @@ const cardData = [
   }
 
   > * {
-    flex: 1;
     border-radius: 8px;
   }
 
@@ -116,9 +116,10 @@ const cardData = [
       justify-content: flex-end;
     }
 
-    image {
-      width: 100%;
+    img {
+      max-width: 100%; /* Adjust image size */
       height: auto;
+      max-height: 100%; /* Ensure image doesn't overflow */
     }
   }
 }
