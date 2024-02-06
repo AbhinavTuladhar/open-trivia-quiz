@@ -43,6 +43,7 @@ const cardData = [
 <style scoped lang="scss">
 .articles-section {
   grid-column: full-width;
+  padding-block: clamp(1rem, 0.429rem + 2.857vw, 3rem);
   background-color: $primary-100;
 }
 

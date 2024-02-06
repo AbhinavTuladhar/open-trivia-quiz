@@ -26,9 +26,15 @@ const { alt, description, image, title } = defineProps<QuizCategoryCardProps>()
   border: 1px solid azure;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 15px 25px;
+  transition-duration: $transition-duration;
 
   > * + * {
     margin-top: 1.25rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.015, 1.015);
   }
 
   &__image {
