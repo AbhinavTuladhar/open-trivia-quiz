@@ -15,7 +15,7 @@
       </h2>
       <p>That's {{ correctPercentage }}%!</p>
       <RouterLink to="/quiz">
-        <button class="replay-button">Click here to play again!</button>
+        <button class="transparent-btn transparent-btn--large">Click here to play again!</button>
       </RouterLink>
     </div>
   </div>
@@ -51,21 +51,6 @@ const correctPercentage = computed(() => {
 
   > * + * {
     margin-block: 1.25rem;
-  }
-}
-
-.replay-button {
-  padding: 1rem 2rem;
-  background-color: transparent;
-  color: white;
-  border: 1px solid silver;
-  border-radius: 8px;
-  transition-duration: $transition-duration;
-
-  &:hover {
-    background-color: white;
-    color: $surface-100;
-    cursor: pointer;
   }
 }
 </style>

@@ -5,7 +5,7 @@
         Let's Sharp Your <br />
         Preparation
       </h2>
-      <button class="transparent-btn transparent-btn--large">Explore All</button>
+      <button class="transparent-btn transparent-btn--large">EXPLORE ALL</button>
     </div>
     <div class="preparation-steps__grid-container">
       <!-- Making a different card which spans two columns. -->
