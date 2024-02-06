@@ -45,3 +45,18 @@
     color: black;
   }
 }
+
+.submit-btn {
+  padding: 1rem 3rem;
+  background-color: utils.$primary-100;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  transition-duration: utils.$transition-duration;
+
+  &:hover {
+    cursor: pointer;
+    background-color: seagreen;
+  }
+}

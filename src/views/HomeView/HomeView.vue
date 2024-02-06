@@ -4,6 +4,7 @@ import HowToPlay from './HowToPlay.vue'
 import Articles from './Articles.vue'
 import QuizCategories from './QuizCategories.vue'
 import PreparationSteps from './PreparationSteps.vue'
+import ContactSection from './ContactSection.vue'
 </script>
 
 <template>
@@ -12,10 +13,7 @@ import PreparationSteps from './PreparationSteps.vue'
   <PreparationSteps />
   <QuizCategories />
   <Articles />
+  <ContactSection />
 </template>
 
-<style lang="scss">
-// main {
-//   background-color: $secondary-colour;
-// }
-</style>
+<style lang="scss"></style>
