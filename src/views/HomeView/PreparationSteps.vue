@@ -117,9 +117,7 @@ const cardData = [
     }
 
     img {
-      max-width: 100%; /* Adjust image size */
-      height: auto;
-      max-height: 100%; /* Ensure image doesn't overflow */
+      height: clamp(13rem, 9.286rem + 18.571vw, 26rem);
     }
   }
 }

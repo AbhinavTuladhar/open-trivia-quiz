@@ -30,6 +30,7 @@ const { image, title, alt } = defineProps<StepCardProps>()
   padding-block: 2rem;
 
   &__image {
+    width: clamp(6.438rem, 4.598rem + 9.196vw, 12.875rem);
     border-radius: 100%;
   }
 }
