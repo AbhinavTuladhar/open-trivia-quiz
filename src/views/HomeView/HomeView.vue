@@ -5,6 +5,7 @@ import Articles from './Articles.vue'
 import QuizCategories from './QuizCategories.vue'
 import PreparationSteps from './PreparationSteps.vue'
 import ContactSection from './ContactSection.vue'
+import Winners from './Winners.vue'
 </script>
 
 <template>
@@ -12,6 +13,7 @@ import ContactSection from './ContactSection.vue'
   <HowToPlay />
   <PreparationSteps />
   <QuizCategories />
+  <Winners />
   <Articles />
   <ContactSection />
 </template>
