@@ -7,11 +7,10 @@ $semi-white: rgb(246, 246, 246);
 $transition-duration: 400ms;
 
 $breakpoints: (
-  extra-small: 436px,
+  super-small: 357px,
+  extra-small: 360px,
   small: 576px,
   medium: 768px,
-  // This is the breaking point of responsive navbar
-  semi-large: 834px,
   large: 1024px,
   extra-large: 1280px,
   // extra-large-2: 1536px

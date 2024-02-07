@@ -57,14 +57,18 @@ $gap: 2rem;
 .winners-container {
   grid-column: content;
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 5vw;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @include breakpoint-min(medium) {
+    grid-template-columns: 1fr 1.5fr;
+  }
 }
 
 .section-desc {
   p {
     font-size: clamp(1rem, 0.929rem + 0.357vw, 1.25rem);
-    line-height: clamp(1em, 0.929em + 0.357vw, 1.25em);
+    line-height: 2em;
   }
 
   > * + * {
@@ -82,8 +86,12 @@ $gap: 2rem;
     flex: 1;
     flex-wrap: wrap;
     align-items: stretch;
-    justify-content: flex-end;
+    justify-content: center;
     gap: $gap;
+
+    @include breakpoint-min(medium) {
+      justify-content: flex-end;
+    }
 
     > * {
       // Set an equal, fluid width and height to all the children
@@ -115,29 +123,64 @@ $gap: 2rem;
   }
 }
 
+.upper-offset,
+.last-child-offset {
+  margin-top: 0;
+}
 .upper-offset {
-  margin-top: calc($offset * -1.5);
+  @include breakpoint-min(super-small) {
+    margin-top: calc($offset * -1.5);
+  }
 }
 
 .last-child-offset {
-  margin-top: calc($offset * 1.5);
+  @include breakpoint-min(super-small) {
+    margin-top: calc($offset * 1.5);
+  }
 
   &--half {
     margin-top: calc($gap / 32);
   }
 }
 
+.upper-arrow,
+.lower-arrow {
+  // display: none;
+  width: clamp(4rem, 2.857rem + 5.714vw, 8rem);
+
+  // @include breakpoint-min(super-small) {
+  //   display: none;
+  // }
+
+  @include breakpoint-min(small) {
+    display: block;
+  }
+}
+
 .upper-arrow {
   position: absolute;
-  top: -10%;
-  left: 80%;
+  top: 100%;
+  right: -30%;
+  transform: rotate(50deg);
+
+  @include breakpoint-min(extra-small) {
+    top: -10%;
+    left: 80%;
+    transform: rotate(00deg);
+  }
 }
 
 .lower-arrow {
   position: absolute;
-  inset: 0;
-  transform: rotate(155deg);
-  top: 75%;
-  left: -50%;
+  top: -20%;
+  left: -30%;
+  transform: rotate(230deg);
+
+  @include breakpoint-min(extra-small) {
+    inset: 0;
+    transform: rotate(155deg);
+    top: 75%;
+    left: -45%;
+  }
 }
 </style>
