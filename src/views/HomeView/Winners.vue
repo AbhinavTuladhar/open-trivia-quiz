@@ -13,8 +13,9 @@
           <div class="winners-column__time-box">
             <h3>
               <span class="winners-column__time-text"> Weekly </span> <br />
-              <span> Winner </span>
+              <span class="winners-column__winner-text"> Winner </span>
             </h3>
+            <img :src="Arrow" alt="arrow" class="upper-arrow" />
           </div>
           <div class="last-child-offset">
             <img :src="WeeklyWinner" alt="The monthly winner" class="winners-column__image" />
@@ -27,8 +28,9 @@
           <div class="winners-column__time-box last-child-offset--half">
             <h3>
               <span class="winners-column__time-text"> Monthly </span> <br />
-              <span> Winner </span>
+              <span class="winners-column__winner-text"> Winner </span>
             </h3>
+            <img :src="Arrow" alt="arrow" class="lower-arrow" />
           </div>
         </div>
       </div>
@@ -49,14 +51,14 @@ $gap: 2rem;
 .winners-section {
   grid-column: full-width;
   background-color: $primary-100;
-  padding-block: clamp(1rem, 0.429rem + 2.857vw, 3rem);
+  padding-block: clamp(1rem, -0.143rem + 5.714vw, 5rem);
 }
 
 .winners-container {
   grid-column: content;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  gap: 10vw;
+  gap: 5vw;
 }
 
 .section-desc {
@@ -91,6 +93,7 @@ $gap: 2rem;
   }
 
   &__time-box {
+    position: relative;
     display: grid;
     place-content: center;
     background-color: $primary-50;
@@ -100,6 +103,10 @@ $gap: 2rem;
 
   &__time-text {
     font-size: clamp(2rem, 0.571rem + 3.81vw, 4rem);
+  }
+
+  &__winner-text {
+    font-size: clamp(1.25rem, 1.071rem + 0.893vw, 1.875rem);
   }
 
   &__image {
@@ -118,5 +125,19 @@ $gap: 2rem;
   &--half {
     margin-top: calc($gap / 32);
   }
+}
+
+.upper-arrow {
+  position: absolute;
+  top: -10%;
+  left: 80%;
+}
+
+.lower-arrow {
+  position: absolute;
+  inset: 0;
+  transform: rotate(155deg);
+  top: 75%;
+  left: -50%;
 }
 </style>
