@@ -40,6 +40,14 @@ import Hero from '@/assets/images/hero.jpg'
     margin-top: 1.5rem;
   }
 
+  h1 {
+    color: $primary-100;
+
+    @include dark-mode {
+      color: white;
+    }
+  }
+
   p {
     font-size: clamp(1.125rem, 1rem + 0.625vw, 1.563rem);
   }
@@ -61,8 +69,13 @@ import Hero from '@/assets/images/hero.jpg'
   }
 
   &__users-count {
+    color: $primary-100;
     font-size: clamp(1.5rem, 0.946rem + 2.768vw, 3.438rem);
     font-weight: bold;
+
+    @include dark-mode {
+      color: white;
+    }
   }
 }
 
