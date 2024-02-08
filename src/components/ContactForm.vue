@@ -3,17 +3,35 @@
     <form class="contact-form" @submit.prevent="handleSubmit">
       <div class="contact-form__input-group">
         <label for="name"> Name </label>
-        <input v-model="formData.name" id="name" type="text" class="contact-form__input-field" />
+        <input
+          required
+          v-model="formData.name"
+          id="name"
+          type="text"
+          class="contact-form__input-field"
+        />
       </div>
 
       <div class="contact-form__input-group">
         <label for="email"> Email </label>
-        <input v-model="formData.email" id="email" type="email" class="contact-form__input-field" />
+        <input
+          required
+          v-model="formData.email"
+          id="email"
+          type="email"
+          class="contact-form__input-field"
+        />
       </div>
 
       <div class="contact-form__input-group">
         <label for="message"> Your message </label>
-        <textarea v-model="formData.message" id="message" class="contact-form__input-field" />
+        <textarea
+          required
+          v-model="formData.message"
+          placeholder="Enter your message here."
+          id="message"
+          class="contact-form__input-field"
+        />
       </div>
 
       <button class="submit-btn">Submit</button>
