@@ -3,8 +3,8 @@
     <div>
       <img :src="image" :alt="alt" class="quiz-card__image" />
     </div>
-    <h3>{{ title }}</h3>
-    <p>{{ description }}</p>
+    <h3 class="quiz-card__title">{{ title }}</h3>
+    <p class="quiz-card__desc">{{ description }}</p>
   </article>
 </template>
 
@@ -22,11 +22,19 @@ const { alt, description, image, title } = defineProps<QuizCategoryCardProps>()
 <style scoped lang="scss">
 .quiz-card {
   padding: 2rem;
-  background-color: $surface-200;
+  background-color: $pink-50;
+  color: $primary-100;
   border: 1px solid azure;
   border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 15px 25px;
+  box-shadow:
+    rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   transition-duration: $transition-duration;
+
+  @include dark-mode {
+    background-color: $surface-200;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 15px 25px;
+  }
 
   > * + * {
     margin-top: 1.25rem;
@@ -35,6 +43,22 @@ const { alt, description, image, title } = defineProps<QuizCategoryCardProps>()
   &:hover {
     cursor: pointer;
     transform: scale(1.015, 1.015);
+  }
+
+  &__title {
+    color: $primary-100;
+
+    @include dark-mode {
+      color: white;
+    }
+  }
+
+  &__desc {
+    color: $placeholder;
+
+    @include dark-mode {
+      color: rgba(255, 255, 255, 0.8);
+    }
   }
 
   &__image {

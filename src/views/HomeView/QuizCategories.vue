@@ -56,6 +56,14 @@ const quizCategoryData = [
   grid-column: content;
   padding-block: clamp(1rem, 0.429rem + 2.857vw, 3rem);
 
+  h2 {
+    color: $primary-100;
+
+    @include dark-mode {
+      color: white;
+    }
+  }
+
   > * + * {
     margin-top: 2rem;
   }
