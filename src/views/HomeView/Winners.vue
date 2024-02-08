@@ -17,12 +17,12 @@
             </h3>
             <img :src="Arrow" alt="arrow" class="upper-arrow" />
           </div>
-          <div class="last-child-offset">
+          <div class="last-child-offset image-container--first">
             <img :src="WeeklyWinner" alt="The monthly winner" class="winners-column__image" />
           </div>
         </div>
         <div class="winners-column__row">
-          <div class="upper-offset">
+          <div class="upper-offset image-container--second">
             <img :src="MonthlyWinner" alt="The monthly winner" class="winners-column__image" />
           </div>
           <div class="winners-column__time-box last-child-offset--half">
@@ -94,9 +94,11 @@ $gap: 2rem;
     }
 
     > * {
+      $box-size: clamp(8.438rem, 2.411rem + 16.071vw, 16.875rem);
+
       // Set an equal, fluid width and height to all the children
-      width: clamp(8.438rem, 2.411rem + 16.071vw, 16.875rem);
-      height: clamp(8.438rem, 2.411rem + 16.071vw, 16.875rem);
+      width: $box-size;
+      height: $box-size;
     }
   }
 
@@ -145,12 +147,7 @@ $gap: 2rem;
 
 .upper-arrow,
 .lower-arrow {
-  // display: none;
   width: clamp(4rem, 2.857rem + 5.714vw, 8rem);
-
-  // @include breakpoint-min(super-small) {
-  //   display: none;
-  // }
 
   @include breakpoint-min(small) {
     display: block;
@@ -182,5 +179,29 @@ $gap: 2rem;
     top: 75%;
     left: -45%;
   }
+}
+
+.image-container--first,
+.image-container--second {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 75%;
+    border: 2px solid white;
+    border-radius: 4px;
+  }
+}
+
+.image-container--first::after {
+  top: 10%;
+  left: 10%;
+}
+
+.image-container--second::after {
+  top: 10%;
+  left: -10%;
 }
 </style>
