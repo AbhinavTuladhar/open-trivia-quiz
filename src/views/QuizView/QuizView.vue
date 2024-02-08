@@ -3,7 +3,7 @@
     <Instructions />
     <OptionsContainer />
     <div>
-      <RouterLink to="/quiz/play">
+      <RouterLink to="/quiz/question/1">
         <button role="link" class="coloured-btn coloured-btn--enabled" @click="handleClick">
           Start the quiz!
         </button>

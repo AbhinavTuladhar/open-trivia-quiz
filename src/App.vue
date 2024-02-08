@@ -2,6 +2,9 @@
 import { onMounted } from 'vue'
 import NavBar from '@/components/NavBar.vue'
 import Footer from './components/Footer.vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 
 // Checking if the user prefers dark mode. If yes, then add the dark class to the root tag.
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -16,7 +19,7 @@ onMounted(() => {
 <template>
   <div class="content-grid main-page">
     <NavBar />
-    <RouterView />
+    <RouterView :key="route.path" />
     <Footer />
   </div>
 </template>

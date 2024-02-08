@@ -24,5 +24,10 @@ export const useQuestionsStore = defineStore('questions', () => {
     }
   }
 
-  return { loading, error, response, fetchQuestions }
+  const getSpecificQuestion = (index: number) => {
+    const questionsList = response.value?.results
+    return questionsList ? questionsList[index - 1] : null
+  }
+
+  return { loading, error, response, fetchQuestions, getSpecificQuestion }
 })
