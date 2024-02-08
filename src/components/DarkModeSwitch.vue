@@ -1,7 +1,5 @@
 <template>
-  <div class="switch" @click="handleClick">
-    <div class="switch__circle" />
-  </div>
+  <div class="switch" @click="handleClick" />
 </template>
 
 <script setup lang="ts">
@@ -32,7 +30,8 @@ $ball-radius: calc($switch-height - $gap * 2);
     background-color: white;
   }
 
-  &__circle {
+  &::after {
+    content: '';
     position: absolute;
     top: $gap;
     right: calc(100% - ($ball-radius + $gap));
