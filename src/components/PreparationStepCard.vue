@@ -1,12 +1,12 @@
 <template>
   <article
     class="step-card"
-    :class="{ green: backgroundColor === 'green', dark: backgroundColor === 'dark' }"
+    :class="{ green: backgroundColor === 'green', contrast: backgroundColor === 'contrast' }"
   >
-    <div>
+    <div class="step-card__image-container">
       <img :src="image" :alt="alt" class="step-card__image" />
     </div>
-    <h3>{{ title }}</h3>
+    <h3 class="step-card__title">{{ title }}</h3>
   </article>
 </template>
 
@@ -15,7 +15,7 @@ interface StepCardProps {
   image: string
   title: string
   alt: string
-  backgroundColor: 'green' | 'dark'
+  backgroundColor: 'green' | 'contrast'
 }
 
 const { image, title, alt } = defineProps<StepCardProps>()
@@ -32,17 +32,35 @@ const { image, title, alt } = defineProps<StepCardProps>()
     0 4px 8px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+  &__image-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-radius: 100%;
+  }
+
   &__image {
     width: clamp(6.438rem, 4.598rem + 9.196vw, 12.875rem);
     border-radius: 100%;
+  }
+
+  &__title {
+    font-size: clamp(1.25rem, 0.893rem + 1.786vw, 2.5rem);
   }
 }
 
 .green {
   background-color: $primary-100;
+  color: white;
 }
 
-.dark {
-  background-color: $surface-200;
+.contrast {
+  background-color: $pink-50;
+  color: $primary-100;
+
+  @include dark-mode {
+    background-color: $surface-200;
+    color: white;
+  }
 }
 </style>

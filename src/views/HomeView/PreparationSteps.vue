@@ -27,7 +27,7 @@
         :alt="alt"
         :image="image"
         :title="title"
-        :background-color="index % 2 === 0 ? 'dark' : 'green'"
+        :background-color="index % 2 === 0 ? 'contrast' : 'green'"
       />
     </div>
   </section>
@@ -64,6 +64,14 @@ const cardData = [
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
+
+    h2 {
+      color: $primary-100;
+
+      @include dark-mode {
+        color: white;
+      }
+    }
   }
 
   &__grid-container {
@@ -84,6 +92,7 @@ const cardData = [
   row-gap: 2rem;
   grid-column: auto;
   max-width: 100%;
+  color: white;
   box-shadow:
     0 4px 8px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
