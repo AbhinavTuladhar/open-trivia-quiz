@@ -51,6 +51,7 @@ $gap: 2rem;
 .winners-section {
   grid-column: full-width;
   background-color: $primary-100;
+  color: white;
   padding-block: clamp(1rem, -0.143rem + 5.714vw, 5rem);
 }
 
