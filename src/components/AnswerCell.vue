@@ -75,6 +75,10 @@ const handleClick = () => {
 
   &:hover {
     background-color: $colour;
+
+    @include dark-mode {
+      background-color: $colour;
+    }
   }
 }
 
