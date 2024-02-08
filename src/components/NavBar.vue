@@ -34,8 +34,11 @@ const toggleMenu = () => {
         <h2>LOGO</h2>
       </RouterLink>
 
-      <DarkModeSwitch />
-      <img :src="Hamburger" class="hamburger" @click="toggleMenu" />
+      <!-- Show the mode toggle and hamburger item on mobile -->
+      <div class="mobile-right-items">
+        <DarkModeSwitch />
+        <img :src="Hamburger" class="hamburger" @click="toggleMenu" />
+      </div>
 
       <!-- For desktop links -->
       <ul class="link-items desktop-links">
@@ -44,7 +47,9 @@ const toggleMenu = () => {
         </li>
       </ul>
 
+      <!-- Mode toggle and play now button on laptop -->
       <div class="btn-laptop">
+        <DarkModeSwitch />
         <RouterLink to="/quiz">
           <button class="transparent-btn transparent-btn--regular">Play now!</button>
         </RouterLink>
@@ -94,6 +99,15 @@ nav {
   align-items: center;
   flex-wrap: wrap;
 
+  .mobile-right-items {
+    display: flex;
+    gap: 2rem;
+
+    @include breakpoint-min(medium) {
+      display: none;
+    }
+  }
+
   .hamburger {
     width: 1.5rem;
     height: 1.5rem;
@@ -126,7 +140,9 @@ nav {
     display: none;
 
     @include breakpoint-min(medium) {
-      display: block;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
     }
   }
 
