@@ -26,7 +26,7 @@ const { bodyText, image, stepNumber } = defineProps<CardProps>()
   $bottom-padding: clamp(0.75rem, -0.679rem + 7.143vw, 5.75rem);
 
   padding: 0.75rem 1.125rem $bottom-padding 1.125rem;
-  background-color: $surface-200;
+  background-color: white;
   border: 1px solid silver;
   border-radius: 8px;
   box-shadow:
@@ -35,6 +35,10 @@ const { bodyText, image, stepNumber } = defineProps<CardProps>()
 
   > * + * {
     margin-top: 3.375rem;
+  }
+
+  @include dark-mode {
+    background-color: $surface-200;
   }
 
   &__image {
@@ -49,7 +53,7 @@ const { bodyText, image, stepNumber } = defineProps<CardProps>()
       content: ' ';
       width: 80%;
       height: 2px;
-      color: silver;
+      color: rgb(239, 239, 239);
       background-color: rgb(239, 239, 239);
       position: absolute;
       bottom: -1.5rem;

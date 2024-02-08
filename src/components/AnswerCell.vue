@@ -50,11 +50,18 @@ const handleClick = () => {
   border: 1px solid silver;
   border-radius: 6px;
   transition-duration: $transition-duration;
+  color: black;
 
   &:hover {
-    background-color: $surface-300;
-    color: white;
+    background-color: rgb(255, 217, 181);
     cursor: pointer;
+  }
+
+  @include dark-mode {
+    color: white;
+    &:hover {
+      background-color: $surface-300;
+    }
   }
 
   &:active {
@@ -64,6 +71,7 @@ const handleClick = () => {
 
 @mixin feedback-style($colour) {
   background-color: $colour;
+  color: white;
 
   &:hover {
     background-color: $colour;

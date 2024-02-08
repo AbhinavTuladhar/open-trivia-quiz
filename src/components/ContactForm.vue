@@ -44,14 +44,19 @@ const handleSubmit = () => {
 <style scoped lang="scss">
 .contact-form {
   grid-column: full-width;
-  background-color: $surface-100;
+  background-color: white;
   padding: clamp(2rem, 1.071rem + 4.643vw, 5.25rem);
-  width: clamp(280px, 155px + 39.286vw, 720px);
+  // width: clamp(280px, 155px + 39.286vw, 720px);
+  width: clamp(17.5rem, 11.25rem + 31.25vw, 39.375rem);
   margin-inline: auto;
   border-radius: 8px;
   box-shadow:
     0 4px 8px 0 rgba(0, 0, 0, 0.4),
     0 6px 20px 0 rgba(0, 0, 0, 0.2);
+
+  @include dark-mode {
+    background-color: $surface-100;
+  }
 
   > * + * {
     margin-top: 1rem;
@@ -78,6 +83,7 @@ const handleSubmit = () => {
   &__input-field {
     padding: 0.5rem 0.25rem;
     border-radius: 8px;
+    border: 1px solid silver;
   }
 }
 </style>

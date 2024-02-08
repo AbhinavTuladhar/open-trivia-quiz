@@ -45,6 +45,7 @@ const cardData = [
   grid-column: full-width;
   padding-block: clamp(1rem, 0.429rem + 2.857vw, 3rem);
   background-color: $primary-100;
+  color: white;
 }
 
 .articles-container {

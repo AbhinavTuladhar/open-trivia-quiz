@@ -3,6 +3,7 @@ import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import Hamburger from '@/assets/images/hamburger.svg'
 import Accordion from '@/components/Accordion.vue'
+import DarkModeSwitch from './DarkModeSwitch.vue'
 
 const router = useRouter()
 const currentPath = router.currentRoute
@@ -33,7 +34,11 @@ const toggleMenu = () => {
         <h2>LOGO</h2>
       </RouterLink>
 
-      <img :src="Hamburger" class="hamburger" @click="toggleMenu" />
+      <!-- Show the mode toggle and hamburger item on mobile -->
+      <div class="mobile-right-items">
+        <DarkModeSwitch />
+        <img :src="Hamburger" class="hamburger" @click="toggleMenu" />
+      </div>
 
       <!-- For desktop links -->
       <ul class="link-items desktop-links">
@@ -42,7 +47,9 @@ const toggleMenu = () => {
         </li>
       </ul>
 
+      <!-- Mode toggle and play now button on laptop -->
       <div class="btn-laptop">
+        <DarkModeSwitch />
         <RouterLink to="/quiz">
           <button class="transparent-btn transparent-btn--regular">Play now!</button>
         </RouterLink>
@@ -72,10 +79,17 @@ const toggleMenu = () => {
 $vertical-padding: 0.5rem;
 
 nav {
+  $border-colour: $surface-600;
+
   grid-column: full-width;
   padding-block: 1rem;
-  color: white;
-  border-bottom: 2px solid $surface-300;
+  color: $surface-100;
+  border-bottom: 2px solid $border-colour;
+
+  @include dark-mode {
+    border-color: $surface-300;
+    color: white;
+  }
 }
 
 .navbar-container {
@@ -85,10 +99,23 @@ nav {
   align-items: center;
   flex-wrap: wrap;
 
+  .mobile-right-items {
+    display: flex;
+    gap: 2rem;
+
+    @include breakpoint-min(medium) {
+      display: none;
+    }
+  }
+
   .hamburger {
     width: 1.5rem;
     height: 1.5rem;
-    filter: invert(100%) sepia(0%) saturate(7444%) hue-rotate(39deg) brightness(114%) contrast(111%);
+
+    @include dark-mode {
+      filter: invert(100%) sepia(0%) saturate(7444%) hue-rotate(39deg) brightness(114%)
+        contrast(111%);
+    }
 
     &:hover {
       cursor: pointer;
@@ -113,7 +140,9 @@ nav {
     display: none;
 
     @include breakpoint-min(medium) {
-      display: block;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
     }
   }
 
@@ -139,8 +168,12 @@ nav {
     width: 0%;
     bottom: -0.5rem;
     height: 2px;
-    background-color: white;
+    background-color: $surface-100;
     transition: all $transition-duration ease-in-out;
+
+    @include dark-mode {
+      background-color: white;
+    }
   }
 
   &:hover::after {

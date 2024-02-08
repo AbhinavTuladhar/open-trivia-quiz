@@ -62,9 +62,13 @@ const handleAnswerClick = (answer: string) => {
 .question-card {
   $padding: 1rem;
 
-  background-color: $surface-200;
+  background-color: $pink-50;
   border: 1px solid silver;
   border-radius: 8px;
+
+  @include dark-mode {
+    background-color: $surface-200;
+  }
 
   &__header {
     display: flex;

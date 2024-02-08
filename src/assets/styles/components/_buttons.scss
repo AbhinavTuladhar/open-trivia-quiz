@@ -1,4 +1,4 @@
-@use "../utils/" as utils;
+@use "../utils/" as *;
 
 // defining the common styles
 .coloured-btn,
@@ -15,7 +15,7 @@
     width: 100%;
     height: 100%;
     z-index: -1;
-    transition: transform utils.$transition-duration ease-in-out;
+    transition: transform $transition-duration ease-in-out;
   }
 
   &:hover {
@@ -25,7 +25,7 @@
 
 .coloured-btn {
   padding: clamp(0.5rem, 0.357rem + 0.714vw, 1rem);
-  background-color: utils.$primary-100;
+  background-color: $primary-100;
   color: white;
   font-size: 1.5rem;
   font-weight: bold;
@@ -33,7 +33,7 @@
   border-radius: 12px;
 
   &--enabled {
-    background-color: utils.$primary-100;
+    background-color: $primary-100;
 
     &::after {
       background-color: seagreen;
@@ -63,21 +63,34 @@
 
 .transparent-btn {
   background-color: transparent;
-  color: white;
-  border: 1px solid white;
-  transition-duration: utils.$transition-duration;
+  color: black;
+  border: 1px solid black;
+  transition-duration: $transition-duration;
   border-radius: 4px;
   z-index: 1;
 
+  @include dark-mode {
+    color: white;
+    border: 1px solid white;
+  }
+
   &::after {
-    background-color: white;
-    transition: transform utils.$transition-duration cubic-bezier(0.215, 0.61, 0.355, 1);
+    background-color: $surface-100;
+    transition: transform $transition-duration cubic-bezier(0.215, 0.61, 0.355, 1);
     transform: scaleX(0);
     transform-origin: right;
+
+    @include dark-mode {
+      background-color: white;
+    }
   }
 
   &:hover {
-    color: black;
+    color: white;
+
+    @include dark-mode {
+      color: black;
+    }
 
     &::after {
       transform: scaleX(1);
@@ -96,7 +109,7 @@
 
 .submit-btn {
   padding: 1rem 3rem;
-  background-color: utils.$primary-100;
+  background-color: $primary-100;
   color: white;
   font-weight: bold;
   border: none;
@@ -107,7 +120,7 @@
     border-radius: 8px;
     transform: scaleX(0);
     transform-origin: center;
-    transition: transform utils.$transition-duration cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    transition: transform $transition-duration cubic-bezier(0.6, -0.28, 0.735, 0.045);
   }
 
   &:hover {

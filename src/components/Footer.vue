@@ -40,6 +40,7 @@ footer {
 .footer-container {
   grid-column: breakout;
   padding-block: clamp(1rem, 0.429rem + 2.857vw, 3rem);
+  color: white;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
   gap: 2rem;
@@ -86,6 +87,7 @@ footer {
 
 .copyright {
   grid-column: breakout;
+  color: white;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
