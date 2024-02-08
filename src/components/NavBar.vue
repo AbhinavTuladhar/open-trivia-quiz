@@ -3,6 +3,7 @@ import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import Hamburger from '@/assets/images/hamburger.svg'
 import Accordion from '@/components/Accordion.vue'
+import DarkModeSwitch from './DarkModeSwitch.vue'
 
 const router = useRouter()
 const currentPath = router.currentRoute
@@ -33,6 +34,7 @@ const toggleMenu = () => {
         <h2>LOGO</h2>
       </RouterLink>
 
+      <DarkModeSwitch />
       <img :src="Hamburger" class="hamburger" @click="toggleMenu" />
 
       <!-- For desktop links -->

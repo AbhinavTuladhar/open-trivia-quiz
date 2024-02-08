@@ -58,3 +58,11 @@
   animation-delay: $delay;
   animation-fill-mode: both;
 }
+
+@mixin dark-mode {
+  @at-root {
+    .dark & {
+      @content;
+    }
+  }
+}

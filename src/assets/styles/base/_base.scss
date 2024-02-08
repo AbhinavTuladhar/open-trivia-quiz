@@ -7,8 +7,6 @@ html:focus-within {
 html,
 body {
   padding: 0;
-  background-color: utils.$surface-100;
-  color: white;
 }
 
 input,
@@ -17,4 +15,17 @@ textarea,
 select,
 section {
   font: inherit;
+}
+
+:root {
+  background-color: white;
+  color: utils.$surface-100;
+  border-color: utils.$surface-200;
+  transition-duration: utils.$transition-duration;
+
+  &.dark {
+    color: white;
+    background-color: utils.$surface-100;
+    border-color: white;
+  }
 }
