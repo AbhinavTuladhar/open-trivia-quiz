@@ -74,10 +74,17 @@ const toggleMenu = () => {
 $vertical-padding: 0.5rem;
 
 nav {
+  $border-colour: $surface-600;
+
   grid-column: full-width;
   padding-block: 1rem;
-  color: white;
-  border-bottom: 2px solid $surface-300;
+  color: $surface-100;
+  border-bottom: 2px solid $border-colour;
+
+  @include dark-mode {
+    border-color: $surface-300;
+    color: white;
+  }
 }
 
 .navbar-container {
@@ -90,7 +97,11 @@ nav {
   .hamburger {
     width: 1.5rem;
     height: 1.5rem;
-    filter: invert(100%) sepia(0%) saturate(7444%) hue-rotate(39deg) brightness(114%) contrast(111%);
+
+    @include dark-mode {
+      filter: invert(100%) sepia(0%) saturate(7444%) hue-rotate(39deg) brightness(114%)
+        contrast(111%);
+    }
 
     &:hover {
       cursor: pointer;
@@ -141,8 +152,12 @@ nav {
     width: 0%;
     bottom: -0.5rem;
     height: 2px;
-    background-color: white;
+    background-color: $surface-100;
     transition: all $transition-duration ease-in-out;
+
+    @include dark-mode {
+      background-color: white;
+    }
   }
 
   &:hover::after {

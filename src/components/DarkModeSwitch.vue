@@ -13,6 +13,10 @@ const handleClick = () => {
   width: 4rem;
   padding: 0.25rem;
   border-radius: 100vw;
-  border: 1px solid white;
+  border: 1px solid $surface-300;
+
+  @include dark-mode {
+    border-color: white;
+  }
 }
 </style>
