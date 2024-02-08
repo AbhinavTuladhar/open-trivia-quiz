@@ -5,22 +5,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-const isDarkMode = document.documentElement.classList.contains('dark')
-
-const initialMode = isDarkMode ? 'dark' : 'light'
-const mode = ref<typeof initialMode>(initialMode)
-
 const handleClick = () => {
   document.documentElement.classList.toggle('dark')
 }
 </script>
 
 <style scoped lang="scss">
-$switch-width: 56px;
-$switch-height: 28px;
-$ball-radius: 24px;
+$switch-width: 52px;
+$switch-height: 24px;
 $gap: 2px;
+$ball-radius: calc($switch-height - $gap * 2);
 
 .switch {
   position: relative;
