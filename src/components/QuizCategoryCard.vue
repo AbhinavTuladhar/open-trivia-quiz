@@ -32,11 +32,6 @@ const { alt, description, image, title } = defineProps<QuizCategoryCardProps>()
     margin-top: 1.25rem;
   }
 
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.015, 1.015);
-  }
-
   &__image {
     border-radius: 100%;
   }
