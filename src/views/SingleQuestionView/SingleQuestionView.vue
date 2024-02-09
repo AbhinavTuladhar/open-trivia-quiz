@@ -4,7 +4,6 @@
     <div v-else-if="error">Encountered an error while fetching questions.</div>
     <div v-else-if="response?.response_code !== 0">Enough questions could not be found!</div>
     <div v-else-if="!fetchedQuestion">No question could be found</div>
-
     <div v-else class="successful-block">
       <QuestionCard
         :category="fetchedQuestion?.category"
@@ -13,14 +12,6 @@
         :question="fetchedQuestion?.question"
         :index="+id - 1"
       />
-      <div class="button-container">
-        <AdjacentQuestionButton :direction="'previous'">
-          {{ `<- Previous` }}
-        </AdjacentQuestionButton>
-        <AdjacentQuestionButton :direction="'next'">
-          {{ `Next ->` }}
-        </AdjacentQuestionButton>
-      </div>
     </div>
   </main>
 </template>
@@ -30,8 +21,8 @@ import { useRoute } from 'vue-router'
 import { toRef, onMounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useQuestionsStore } from '@/stores/questions'
+import { onBeforeRouteLeave } from 'vue-router'
 import QuestionCard from '@/components/QuestionCard.vue'
-import AdjacentQuestionButton from './AdjacentQuestionButton.vue'
 import type { QuestionData } from '@/types'
 
 const route = useRoute()
@@ -50,22 +41,25 @@ onMounted(async () => {
   fetchedQuestion.value = getSpecificQuestion(+id.value)
 })
 
+// Route guard - if the user tries to leave the page while playing the quiz.
+onBeforeRouteLeave((to) => {
+  if (to.name === 'home' || to.name === 'quiz') {
+    const confirmLeave = window.confirm('Are you sure you want to go back?')
+
+    return confirmLeave
+  }
+})
+
 // Fetch the question
 </script>
 
 <style scoped lang="scss">
 .container {
   grid-column: content;
-  padding-block: 2rem;
+  padding-block: clamp(3rem, -0.571rem + 9.524vw, 8rem);
 }
 
 .successful-block > * + * {
   margin-top: 2rem;
-}
-
-.button-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
 }
 </style>
