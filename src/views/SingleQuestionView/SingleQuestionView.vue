@@ -1,21 +1,27 @@
 <template>
   <main class="container">
-    <div :key="id">This is question number {{ id }}</div>
-
     <div v-if="loading">Loading the questions...</div>
     <div v-else-if="error">Encountered an error while fetching questions.</div>
     <div v-else-if="response?.response_code !== 0">Enough questions could not be found!</div>
     <div v-else-if="!fetchedQuestion">No question could be found</div>
 
-    <QuestionCard
-      v-else
-      :category="fetchedQuestion?.category"
-      :correct_answer="fetchedQuestion?.correct_answer"
-      :incorrect_answers="fetchedQuestion?.incorrect_answers"
-      :question="fetchedQuestion?.question"
-      :index="+id - 1"
-    />
-    <AdjacentQuestionButton />
+    <div v-else class="successful-block">
+      <QuestionCard
+        :category="fetchedQuestion?.category"
+        :correct_answer="fetchedQuestion?.correct_answer"
+        :incorrect_answers="fetchedQuestion?.incorrect_answers"
+        :question="fetchedQuestion?.question"
+        :index="+id - 1"
+      />
+      <div class="button-container">
+        <AdjacentQuestionButton :direction="'previous'">
+          {{ `<- Previous` }}
+        </AdjacentQuestionButton>
+        <AdjacentQuestionButton :direction="'next'">
+          {{ `Next ->` }}
+        </AdjacentQuestionButton>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -50,5 +56,16 @@ onMounted(async () => {
 <style scoped lang="scss">
 .container {
   grid-column: content;
+  padding-block: 2rem;
+}
+
+.successful-block > * + * {
+  margin-top: 2rem;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 </style>

@@ -18,11 +18,20 @@ import Instructions from './Instructions.vue'
 import { useOptionsStore } from '@/stores/options'
 import makeUrl from '@/helpers/makeUrl'
 import { storeToRefs } from 'pinia'
+import { onMounted } from 'vue'
+import { useProgressStore } from '@/stores/progress'
 
 const optionsStoreValues = useOptionsStore()
 const { setUrl } = optionsStoreValues
 const { category, difficulty, questionType } = storeToRefs(optionsStoreValues)
 
+const progressStore = useProgressStore()
+const { resetCounts } = progressStore
+
+onMounted(() => {
+  // Reset the counts of attempted and correct questions.
+  resetCounts()
+})
 // Set the url in Pinia store
 const handleClick = () => {
   const url = makeUrl(category.value, difficulty.value, questionType.value)
