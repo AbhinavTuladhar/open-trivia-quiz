@@ -91,11 +91,20 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-items: center;
+  row-gap: 1rem;
   padding-block: 2rem;
   border-top: 1px solid $primary-300;
 
   &__links-div {
-    @include flex-box($gap: 2rem);
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    width: 100%;
+
+    @include breakpoint-min(small) {
+      width: auto;
+    }
   }
 }
 </style>
