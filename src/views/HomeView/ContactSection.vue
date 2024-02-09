@@ -64,5 +64,9 @@ import ContactForm from '@/components/ContactForm.vue'
   > * + * {
     margin-top: 1.75rem;
   }
+
+  p {
+    padding-inline: 1rem;
+  }
 }
 </style>
