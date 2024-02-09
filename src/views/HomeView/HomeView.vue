@@ -9,13 +9,20 @@ import Winners from './Winners.vue'
 </script>
 
 <template>
-  <HeroSection />
-  <HowToPlay />
-  <PreparationSteps />
-  <QuizCategories />
-  <Winners />
-  <Articles />
-  <ContactSection />
+  <div class="content-grid home-view">
+    <HeroSection />
+    <HowToPlay />
+    <PreparationSteps />
+    <QuizCategories />
+    <Winners />
+    <Articles />
+    <ContactSection />
+  </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.home-view {
+  grid-column: full-width;
+  overflow: hidden;
+}
+</style>

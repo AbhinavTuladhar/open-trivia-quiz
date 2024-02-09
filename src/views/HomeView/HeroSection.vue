@@ -1,6 +1,6 @@
 <template>
   <section class="hero">
-    <div class="col-1">
+    <div class="col-1" ref="leftTarget">
       <h1>Play Online Quizzes & Win Prizes Daily!</h1>
       <p>Win upto Rs.5000 monthly!</p>
       <button class="transparent-btn transparent-btn--large register-btn">Register now!</button>
@@ -11,12 +11,17 @@
       </div>
     </div>
 
-    <img class="hero__image" :src="Hero" alt="something" />
+    <img class="hero__image" :src="Hero" alt="something" ref="rightTarget" />
   </section>
 </template>
 
 <script setup lang="ts">
 import Hero from '@/assets/images/hero.jpg'
+import useSlideLeft from '@/composables/useSlideLeft'
+import useSlideRight from '@/composables/useSlideRight'
+
+const { target: leftTarget } = useSlideLeft()
+const { target: rightTarget } = useSlideRight()
 </script>
 
 <style scoped lang="scss">
@@ -25,7 +30,6 @@ import Hero from '@/assets/images/hero.jpg'
   padding-block: clamp(1rem, 0.714rem + 1.429vw, 2rem);
   display: grid;
   align-items: center;
-  // justify-items: end;
   grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
   justify-content: center;
   column-gap: 5rem;
