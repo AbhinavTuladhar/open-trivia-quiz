@@ -80,9 +80,13 @@ const delays = makeDelay(4, 300, 200)
   }
 
   &__card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    display: flex;
     gap: 2rem;
+    flex-wrap: wrap;
+
+    > * {
+      flex: 1 1 200px;
+    }
   }
 }
 </style>
