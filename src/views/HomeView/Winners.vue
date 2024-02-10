@@ -1,14 +1,14 @@
 <template>
   <section class="winners-section content-grid">
     <div class="winners-container">
-      <div class="section-desc">
+      <div class="section-desc" ref="leftTarget">
         <h2>Previous winners</h2>
         <p>
           Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
           Etiam placerat tortor commodo lectus laoreet venenatis.
         </p>
       </div>
-      <div class="winners-column">
+      <div class="winners-column" ref="rightTarget">
         <div class="winners-column__row">
           <div class="winners-column__time-box">
             <h3>
@@ -42,6 +42,11 @@
 import Arrow from '@/assets/images/curved_arrow.svg'
 import MonthlyWinner from '@/assets/images/monthly_winner.jpg'
 import WeeklyWinner from '@/assets/images/weekly_winner.jpg'
+import useSlideLeft from '@/composables/useSlideLeft'
+import useSlideRight from '@/composables/useSlideRight'
+
+const { target: leftTarget } = useSlideLeft(100)
+const { target: rightTarget } = useSlideRight(100)
 </script>
 
 <style scoped lang="scss">

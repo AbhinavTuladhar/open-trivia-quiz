@@ -1,7 +1,7 @@
 import { useMotion } from "@vueuse/motion"
 import { ref } from "vue"
 
-const useSlideLeft = () => {
+const useSlideLeft = (delay?: number) => {
   const prevTarget = ref<HTMLElement>()
 
   return useMotion(prevTarget, {
@@ -14,7 +14,8 @@ const useSlideLeft = () => {
       x: 0,
       transition: {
         duration: 500,
-        ease: 'easeOut'
+        ease: 'easeOut',
+        delay: delay || 0
       },
     },
     leave: {
