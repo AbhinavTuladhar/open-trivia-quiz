@@ -1,5 +1,5 @@
 <template>
-  <main class="container" ref="target">
+  <main class="container">
     <div v-if="loading">Loading the questions...</div>
     <div v-else-if="error">Encountered an error while fetching questions.</div>
     <div v-else-if="response?.response_code !== 0">Enough questions could not be found!</div>
@@ -24,9 +24,6 @@ import { useQuestionsStore } from '@/stores/questions'
 import { onBeforeRouteLeave } from 'vue-router'
 import QuestionCard from '@/components/QuestionCard.vue'
 import type { QuestionData } from '@/types'
-import useFadeIn from '@/composables/useFadeIn'
-
-const { target } = useFadeIn()
 
 const route = useRoute()
 const id = toRef(route.params.id as string)
@@ -52,14 +49,12 @@ onBeforeRouteLeave((to) => {
     return confirmLeave
   }
 })
-
-// Fetch the question
 </script>
 
 <style scoped lang="scss">
 .container {
   grid-column: content;
-  padding-block: clamp(3rem, -0.571rem + 9.524vw, 8rem);
+  padding-block: clamp(3rem, 0.857rem + 5.714vw, 6rem);
 }
 
 .successful-block > * + * {
