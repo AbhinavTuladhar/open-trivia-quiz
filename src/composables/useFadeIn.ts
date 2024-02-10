@@ -11,13 +11,15 @@ const useFadeIn = () => {
     visibleOnce: {
       opacity: 1,
       transition: {
-        duration: 500
+        duration: 500,
+        ease: 'easeOut'
       }
     },
     leave: {
       opacity: 0,
       transition: {
-        duration: 500
+        duration: 500,
+        ease: 'easeIn'
       }
     }
   })

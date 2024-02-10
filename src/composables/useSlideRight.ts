@@ -13,14 +13,16 @@ const useSlideRight = () => {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 500
+        duration: 500,
+        ease: 'easeOut'
       }
     },
     leave: {
       opacity: 0,
       x: 0,
       transition: {
-        duration: 500
+        duration: 500,
+        ease: 'easeIn'
       }
     }
   })

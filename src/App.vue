@@ -19,7 +19,11 @@ onMounted(() => {
 <template>
   <div class="content-grid main-page">
     <NavBar />
-    <RouterView :key="route.path" />
+    <RouterView v-slot="{ Component }">
+      <Transition name="route" mode="out-in">
+        <Component :key="route.path" :is="Component" />
+      </Transition>
+    </RouterView>
     <Footer />
   </div>
 </template>
@@ -29,5 +33,19 @@ onMounted(() => {
   min-height: 100dvh;
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
+
+/* route transitions */
+.route-enter-from {
+  opacity: 0;
+}
+.route-enter-active {
+  transition: all 0.4s ease-out;
+}
+.route-leave-to {
+  opacity: 0;
+}
+.route-leave-active {
+  transition: all 0.4s ease-in;
 }
 </style>
