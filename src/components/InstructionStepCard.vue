@@ -1,5 +1,5 @@
 <template>
-  <article class="instruction-card">
+  <article class="instruction-card" ref="target">
     <div class="instruction-card__image">
       <img :src="image" alt="some instruction" />
     </div>
@@ -11,13 +11,20 @@
 </template>
 
 <script setup lang="ts">
+import useFadeIn from '@/composables/useFadeIn'
+
 interface CardProps {
   stepNumber: number
   bodyText: string
   image: string
+  delay: number
 }
 
-const { bodyText, image, stepNumber } = defineProps<CardProps>()
+const { bodyText, image, stepNumber, delay } = withDefaults(defineProps<CardProps>(), {
+  delay: 0
+})
+
+const { target } = useFadeIn(delay)
 </script>
 
 <style scoped lang="scss">

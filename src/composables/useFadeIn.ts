@@ -1,7 +1,7 @@
 import { useMotion } from "@vueuse/motion"
 import { ref } from "vue"
 
-const useFadeIn = () => {
+const useFadeIn = (delay?: number) => {
   const prevTarget = ref<HTMLElement>()
 
   return useMotion(prevTarget, {
@@ -12,7 +12,8 @@ const useFadeIn = () => {
       opacity: 1,
       transition: {
         duration: 500,
-        ease: 'easeOut'
+        ease: 'easeOut',
+        delay: delay || 0
       }
     },
     leave: {
