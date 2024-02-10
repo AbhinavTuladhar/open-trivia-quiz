@@ -1,6 +1,6 @@
 <template>
   <main class="content-grid">
-    <form class="contact-form" @submit.prevent="handleSubmit">
+    <form ref="target" class="contact-form" @submit.prevent="handleSubmit">
       <div class="contact-form__input-group">
         <label for="name"> Name </label>
         <input
@@ -41,6 +41,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import useFadeIn from '@/composables/useFadeIn'
+
+const { target } = useFadeIn(200)
 
 const formData = ref({
   name: '',

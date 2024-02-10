@@ -1,15 +1,15 @@
 <template>
   <section class="preparation-steps">
     <div class="preparation-steps__header">
-      <h2>
+      <h2 ref="headerTarget">
         Let's Sharp Your <br />
         Preparation
       </h2>
-      <button class="transparent-btn transparent-btn--large">EXPLORE ALL</button>
+      <button ref="buttonTarget" class="transparent-btn transparent-btn--large">EXPLORE ALL</button>
     </div>
     <div class="preparation-steps__grid-container">
       <!-- Making a different card which spans two columns. -->
-      <article class="special-card">
+      <article class="special-card" ref="specialCardTarget">
         <div class="special-card__left">
           <h3>Model Test</h3>
           <p>
@@ -40,6 +40,13 @@ import Woman from '@/assets/images/muslim_woman.jpg'
 import Class from '@/assets/images/virtual_class.jpg'
 import Teacher from '@/assets/images/maths_teacher.jpg'
 import Scientist from '@/assets/images/scientist.jpg'
+import useFadeIn from '@/composables/useFadeIn'
+import useSlideLeft from '@/composables/useSlideLeft'
+import useSlideRight from '@/composables/useSlideRight'
+
+const { target: headerTarget } = useSlideLeft(100)
+const { target: buttonTarget } = useSlideRight(100)
+const { target: specialCardTarget } = useFadeIn(200)
 
 const cardData = [
   { image: Woman, alt: 'A Muslim Woman', title: 'Primary Exam' },

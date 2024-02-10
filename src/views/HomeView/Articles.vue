@@ -1,7 +1,7 @@
 <template>
   <section class="articles-section content-grid">
     <div class="articles-container">
-      <h2>Check the Latest Articles!</h2>
+      <h2 ref="target">Check the Latest Articles!</h2>
       <div class="articles-card-container">
         <ArticleCard
           v-for="({ date, image, title }, index) in cardData"
@@ -20,6 +20,9 @@ import Article1 from '@/assets/images/article_1.jpg'
 import Article2 from '@/assets/images/article_2.jpg'
 import Article3 from '@/assets/images/article_3.jpg'
 import ArticleCard from '@/components/ArticleCard.vue'
+import useSlideUp from '@/composables/useSlideUp'
+
+const { target } = useSlideUp(200)
 
 const cardData = [
   {

@@ -1,5 +1,5 @@
 <template>
-  <article class="article-card">
+  <article class="article-card" ref="target">
     <div class="article-cad__image-container">
       <img :src="image" class="article-card__image" />
     </div>
@@ -9,6 +9,8 @@
 </template>
 
 <script setup lang="ts">
+import useSlideUp from '@/composables/useSlideUp'
+
 interface CardProps {
   image: string
   title: string
@@ -16,6 +18,8 @@ interface CardProps {
 }
 
 const { date, image, title } = defineProps<CardProps>()
+
+const { target } = useSlideUp(200)
 </script>
 
 <style scoped lang="scss">

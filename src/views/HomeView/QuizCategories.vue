@@ -1,8 +1,8 @@
 <template>
   <section class="quiz-categories">
     <div class="quiz-categories__header">
-      <h2>Explore our quiz categories</h2>
-      <button class="transparent-btn transparent-btn--large">EXPLORE ALL</button>
+      <h2 ref="headerTarget">Explore our quiz categories</h2>
+      <button ref="buttonTarget" class="transparent-btn transparent-btn--large">EXPLORE ALL</button>
     </div>
     <div class="quiz-categories__card-container">
       <QuizCategoryCard
@@ -25,6 +25,11 @@ import Microscope from '@/assets/images/microscope.png'
 import Books from '@/assets/images/books.png'
 import QuizCategoryCard from '@/components/QuizCategoryCard.vue'
 import makeDelay from '@/helpers/makeDelay'
+import useSlideLeft from '@/composables/useSlideLeft'
+import useSlideRight from '@/composables/useSlideRight'
+
+const { target: headerTarget } = useSlideLeft(100)
+const { target: buttonTarget } = useSlideRight(100)
 
 const quizCategoryData = [
   {

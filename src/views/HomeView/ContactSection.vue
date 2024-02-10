@@ -2,10 +2,10 @@
   <section class="contact">
     <div class="contact-container">
       <div class="contact__header">
-        <h3 class="contact__subtitle">Contact us</h3>
-        <h2 class="contact__title">Get In Touch</h2>
+        <h3 ref="subtitleRef" class="contact__subtitle">Contact us</h3>
+        <h2 ref="titleRef" class="contact__title">Get In Touch</h2>
       </div>
-      <p>Lorem Ipsum decided to leave for the far world of grammar</p>
+      <p ref="descRef">Lorem Ipsum decided to leave for the far world of grammar</p>
       <div class="contact__form-container">
         <ContactForm />
       </div>
@@ -15,6 +15,16 @@
 
 <script setup lang="ts">
 import ContactForm from '@/components/ContactForm.vue'
+import makeDelay from '@/helpers/makeDelay'
+import useSlideUp from '@/composables/useSlideUp'
+
+const delays = makeDelay(3, 200, 200)
+
+const targetRefs = delays.map((delay) => {
+  const { target } = useSlideUp(delay)
+  return target
+})
+const [subtitleRef, titleRef, descRef] = targetRefs
 </script>
 
 <style scoped lang="scss">

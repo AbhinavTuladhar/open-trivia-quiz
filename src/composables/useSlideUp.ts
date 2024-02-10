@@ -1,26 +1,25 @@
 import { useMotion } from "@vueuse/motion"
 import { ref } from "vue"
 
-const useSlideLeft = (delay?: number) => {
+const useSlideUp = (delay?: number) => {
   const prevTarget = ref<HTMLElement>()
 
   return useMotion(prevTarget, {
     initial: {
       opacity: 0,
-      translateX: -100
+      translateY: '2.5rem'
     },
     visibleOnce: {
       opacity: 1,
-      translateX: 0,
+      translateY: '0rem',
       transition: {
         duration: 500,
         ease: 'easeOut',
         delay: delay || 0
-      },
+      }
     },
     leave: {
       opacity: 0,
-      x: 0,
       transition: {
         duration: 500,
         ease: 'easeIn'
@@ -29,4 +28,4 @@ const useSlideLeft = (delay?: number) => {
   })
 }
 
-export default useSlideLeft
+export default useSlideUp

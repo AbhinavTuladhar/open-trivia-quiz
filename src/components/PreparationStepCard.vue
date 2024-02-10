@@ -2,6 +2,7 @@
   <article
     class="step-card"
     :class="{ green: backgroundColor === 'green', contrast: backgroundColor === 'contrast' }"
+    ref="target"
   >
     <div class="step-card__image-container">
       <img :src="image" :alt="alt" class="step-card__image" />
@@ -11,6 +12,8 @@
 </template>
 
 <script setup lang="ts">
+import useFadeIn from '@/composables/useFadeIn'
+
 interface StepCardProps {
   image: string
   title: string
@@ -19,6 +22,8 @@ interface StepCardProps {
 }
 
 const { image, title, alt } = defineProps<StepCardProps>()
+
+const { target } = useFadeIn(200)
 </script>
 
 <style scoped lang="scss">

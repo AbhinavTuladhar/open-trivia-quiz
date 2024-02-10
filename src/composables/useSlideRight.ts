@@ -7,11 +7,11 @@ const useSlideRight = (delay?: number) => {
   return useMotion(prevTarget, {
     initial: {
       opacity: 0,
-      x: 100
+      translateX: 100
     },
     visibleOnce: {
       opacity: 1,
-      x: 0,
+      translateX: 0,
       transition: {
         duration: 500,
         ease: 'easeOut',
