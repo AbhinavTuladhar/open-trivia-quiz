@@ -12,6 +12,7 @@
         :image="image"
         :title="title"
         :description="body"
+        :delay="delays[index]"
       />
     </div>
   </section>
@@ -23,6 +24,7 @@ import English from '@/assets/images/english.png'
 import Microscope from '@/assets/images/microscope.png'
 import Books from '@/assets/images/books.png'
 import QuizCategoryCard from '@/components/QuizCategoryCard.vue'
+import makeDelay from '@/helpers/makeDelay'
 
 const quizCategoryData = [
   {
@@ -50,6 +52,8 @@ const quizCategoryData = [
     body: 'Test your awareness on diverse topics!'
   }
 ]
+
+const delays = makeDelay(4, 300, 200)
 </script>
 <style scoped lang="scss">
 .quiz-categories {

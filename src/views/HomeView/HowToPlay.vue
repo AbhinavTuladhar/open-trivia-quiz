@@ -9,7 +9,6 @@
           :image="image"
           :body-text="text"
           :step-number="index"
-          :delay="delayValues[index - 1]"
         />
       </div>
     </div>
@@ -22,7 +21,6 @@ import Step1 from '@/assets/images/step1.png'
 import Step2 from '@/assets/images/step2.png'
 import Step3 from '@/assets/images/step3.png'
 import useFadeIn from '@/composables/useFadeIn'
-import makeDelay from '@/helpers/makeDelay'
 
 const { target } = useFadeIn(100)
 
@@ -31,9 +29,6 @@ const instructionData = [
   { index: 2, text: 'A question will have two or four options.', image: Step2 },
   { index: 3, text: 'Click on the correct option!', image: Step3 }
 ]
-
-// For the delay values in the cards
-const delayValues = makeDelay(3, 300, 200)
 </script>
 
 <style lang="scss" scoped>

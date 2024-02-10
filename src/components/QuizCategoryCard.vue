@@ -1,5 +1,5 @@
 <template>
-  <article class="quiz-card">
+  <article class="quiz-card" ref="target">
     <div>
       <img :src="image" :alt="alt" class="quiz-card__image" />
     </div>
@@ -9,6 +9,8 @@
 </template>
 
 <script setup lang="ts">
+import useFadeIn from '@/composables/useFadeIn'
+
 interface QuizCategoryCardProps {
   alt: string
   image: string
@@ -17,6 +19,8 @@ interface QuizCategoryCardProps {
 }
 
 const { alt, description, image, title } = defineProps<QuizCategoryCardProps>()
+
+const { target } = useFadeIn()
 </script>
 
 <style scoped lang="scss">
