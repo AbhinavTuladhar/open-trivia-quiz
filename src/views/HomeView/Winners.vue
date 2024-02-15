@@ -42,11 +42,10 @@
 import Arrow from '@/assets/images/curved_arrow.svg'
 import MonthlyWinner from '@/assets/images/monthly_winner.jpg'
 import WeeklyWinner from '@/assets/images/weekly_winner.jpg'
-import useSlideLeft from '@/composables/useSlideLeft'
-import useSlideRight from '@/composables/useSlideRight'
+import useSlideAnimation from '@/composables/useSlideAnimation'
 
-const { target: leftTarget } = useSlideLeft(100)
-const { target: rightTarget } = useSlideRight(100)
+const { target: leftTarget } = useSlideAnimation('left', 100)
+const { target: rightTarget } = useSlideAnimation('right', 100)
 </script>
 
 <style scoped lang="scss">

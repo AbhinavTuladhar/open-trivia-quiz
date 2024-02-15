@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import useSlideUp from '@/composables/useSlideUp'
+import useSlideAnimation from '@/composables/useSlideAnimation'
 
 interface CardProps {
   image: string
@@ -19,7 +19,7 @@ interface CardProps {
 
 const { date, image, title } = defineProps<CardProps>()
 
-const { target } = useSlideUp(200)
+const { target } = useSlideAnimation('up', 200)
 </script>
 
 <style scoped lang="scss">

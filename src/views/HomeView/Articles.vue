@@ -20,9 +20,9 @@ import Article1 from '@/assets/images/article_1.jpg'
 import Article2 from '@/assets/images/article_2.jpg'
 import Article3 from '@/assets/images/article_3.jpg'
 import ArticleCard from '@/components/ArticleCard.vue'
-import useSlideUp from '@/composables/useSlideUp'
+import useSlideAnimation from '@/composables/useSlideAnimation'
 
-const { target } = useSlideUp(200)
+const { target } = useSlideAnimation('up', 200)
 
 const cardData = [
   {

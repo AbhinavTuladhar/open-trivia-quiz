@@ -17,11 +17,10 @@
 
 <script setup lang="ts">
 import Hero from '@/assets/images/hero.jpg'
-import useSlideLeft from '@/composables/useSlideLeft'
-import useSlideRight from '@/composables/useSlideRight'
+import useSlideAnimation from '@/composables/useSlideAnimation'
 
-const { target: leftTarget } = useSlideLeft()
-const { target: rightTarget } = useSlideRight()
+const { target: leftTarget } = useSlideAnimation('left')
+const { target: rightTarget } = useSlideAnimation('right')
 </script>
 
 <style scoped lang="scss">

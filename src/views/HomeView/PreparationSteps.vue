@@ -41,11 +41,10 @@ import Class from '@/assets/images/virtual_class.jpg'
 import Teacher from '@/assets/images/maths_teacher.jpg'
 import Scientist from '@/assets/images/scientist.jpg'
 import useFadeIn from '@/composables/useFadeIn'
-import useSlideLeft from '@/composables/useSlideLeft'
-import useSlideRight from '@/composables/useSlideRight'
+import useSlideAnimation from '@/composables/useSlideAnimation'
 
-const { target: headerTarget } = useSlideLeft(100)
-const { target: buttonTarget } = useSlideRight(100)
+const { target: headerTarget } = useSlideAnimation('left', 100)
+const { target: buttonTarget } = useSlideAnimation('right', 100)
 const { target: specialCardTarget } = useFadeIn(200)
 
 const cardData = [

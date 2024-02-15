@@ -25,11 +25,10 @@ import Microscope from '@/assets/images/microscope.png'
 import Books from '@/assets/images/books.png'
 import QuizCategoryCard from '@/components/QuizCategoryCard.vue'
 import makeDelay from '@/helpers/makeDelay'
-import useSlideLeft from '@/composables/useSlideLeft'
-import useSlideRight from '@/composables/useSlideRight'
+import useSlideAnimation from '@/composables/useSlideAnimation'
 
-const { target: headerTarget } = useSlideLeft(100)
-const { target: buttonTarget } = useSlideRight(100)
+const { target: headerTarget } = useSlideAnimation('left', 100)
+const { target: buttonTarget } = useSlideAnimation('right', 100)
 
 const quizCategoryData = [
   {

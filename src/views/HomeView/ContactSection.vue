@@ -16,12 +16,12 @@
 <script setup lang="ts">
 import ContactForm from '@/components/ContactForm.vue'
 import makeDelay from '@/helpers/makeDelay'
-import useSlideUp from '@/composables/useSlideUp'
+import useSlideAnimation from '@/composables/useSlideAnimation'
 
 const delays = makeDelay(3, 200, 200)
 
 const targetRefs = delays.map((delay) => {
-  const { target } = useSlideUp(delay)
+  const { target } = useSlideAnimation('up', delay)
   return target
 })
 const [subtitleRef, titleRef, descRef] = targetRefs
